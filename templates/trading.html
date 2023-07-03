@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+<html>
+<head>
+  <title>{% block title %}Trading{% endblock %}</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css') }}">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    .section h2 {
+      margin-bottom: 10px;
+    }
+    .section p {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Trading</h1>
+  
+  <div class="section">
+    <h2>Personal Information</h2>
+    <p><strong>Name:</strong> Yang Zeshi</p>
+    <p><strong>Email:</strong> yangzeshi@u.nus.edu</p>
+    <p><strong>Phone:</strong> (+86) 18808263521</p>
+    <p><strong>Location:</strong> Singapore</p>
+  </div>
+  
+  <div class="section">
+    <h2>Education</h2>
+    <p><strong>Degree:</strong> Bachelor of Science in Computer Science</p>
+    <p><strong>University:</strong> ABC University</p>
+    <p><strong>Year:</strong> 2010 - 2014</p>
+  </div>
+  
+  <div class="section">
+    <h2>Work Experience</h2>
+    <p><strong>Company:</strong> XYZ Corporation</p>
+    <p><strong>Position:</strong> Software Engineer</p>
+    <p><strong>Duration:</strong> 2015 - Present</p>
+    <p><strong>Responsibilities:</strong></p>
+    <ul>
+      <li>Developing web applications</li>
+      <li>Testing and debugging code</li>
+      <li>Collaborating with cross-functional teams</li>
+    </ul>
+  </div>
+  
+</body>
+</html>
+{% endblock %}

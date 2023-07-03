@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+<html>
+  
+<head>
+  <title>{% block title %}My Resume{% endblock %}</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css') }}">
+</head>
+
+<body>  
+
+  <div class="column-container">
+
+    <div class="column1">
+      <div class="overall">
+        <h2>Personal Information</h2>
+        <p><strong>Name:</strong> {{person.name}}</p>
+        <!-- <p><strong>Age:</strong> {{person.age}}</p> -->
+        <p><strong>Email:</strong> {{person.email}}</p>
+        <p><strong>Phone:</strong> {{person.phone}}</p>
+        <p><strong>Location:</strong> {{person.location}}</p>
+      </div>
+    </div>
+
+    
+    <div class="column2">
+      <div class="wrapper">
+        <div class="section">
+          <h2>About me</h2> 
+          <p>{{ person.introduction | safe}}</p>
+          <p class="spacer"></p>
+          <p><strong>Mottos:</strong></p>            
+          <p>在不断的膨胀与打脸中，苟求一丝对世界的认识 (2016-2023)</p>      
+          <p>坦途于心境，谨慎于世事 (2023-)</p>
+        </div>
+        <hr>
+        <div class="section">
+          <h2>Education</h2>
+          <div class="grid-container">
+            <div style="text-align: center;">   
+            <img
+            class="fit-picture"           
+            src="{{ url_for('static', filename='images/NUS.png')}}" 
+            alt="Logo-NUS">  
+            <p style="margin-bottom: auto;">National University of Singapore</p>
+            <p>Ph.D. of Mechanical Engineering</p>
+            <p>2020 - present</p>  
+          </div>   
+          <div style="text-align: center;">      
+            <img
+            class="fit-picture"           
+            src="{{ url_for('static', filename='images/CSU.png')}}" 
+            alt="Logo-CSU">
+            <p>Master of Metallurgy Engineering</p>
+            <p>Central South University</p>
+            <p>2017 - 2020</p>
+          </div> 
+            <div style="text-align: center;">   
+            <img
+            class="fit-picture"           
+            src="{{ url_for('static', filename='images/CSU.png')}}" 
+            alt="Logo-NUS">
+            <p>Bachelor of Mineral Processing Engineering</p>
+            <p>Central South University</p>
+            <p>2013 - 2017</p>
+            </div>
+          </div>          
+        </div>
+        <hr>
+        <div class="section">
+          <h2>Skills</h2>
+          <p>Thanks to my study experience, I have a solid background in mineral procesisng, ferrous metallurgy, and additive manufacutring.</p>
+        </div>
+        <hr>
+        <div class="section">
+          <h2>Interests</h2>
+          <p>I enjoy cycling, computer games, trading. 
+            Recently I am trying to compose some music, starting from the basic reproduction of some pop musics.</p>
+        </div>
+    </div>
+
+    </div>
+
+  </div> 
+</body>
+</html>
+{% endblock %}

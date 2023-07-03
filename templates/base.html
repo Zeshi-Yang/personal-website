@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/base.css') }}">
+</head>
+<body>
+  <div style="font-size: 20px; text-align: center;">
+    <p>Put something there</p>
+  </div>
+  <div class="nav">
+    <a href="/" class="widget">Home</a>
+    <a href="/research" class="widget">Research</a>    
+    <a href="/programming" class="widget">Programming</a>
+    <a href="/contact" class="widget">Contact</a>
+    <a href="/test" class="widget">Test</a>
+  </div>
+  {% block content %}
+  {% endblock %}
+</body>
+<footer style="text-align:center;">
+    <p>&copy; 2023 My Example Website. All rights reserved.</p>
+</footer>
+</html>

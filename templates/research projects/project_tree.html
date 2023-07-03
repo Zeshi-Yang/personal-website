@@ -1,0 +1,13 @@
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css') }}">
+<h2>Projects</h2>
+<div class="project-list" style="grid-template-columns: 1fr 1fr;">
+  {% for intro in intros %}
+      <a href="{{ url_for('show_intro', intro_id=intro['id']) }}" class="widget">{{ intro['title'] }}</a>
+  {% endfor %}    
+  <a href="/" class="widget">Powder spattering</a>
+  <a href="/" class="widget">Filament Deposition Modelling</a>
+  <a href="/" class="widget">Molding Injection</a>
+  <a href="/" class="widget">Acoustic Signal Emissions</a>
+  <a href="/" class="widget">Collaboration</a>  
+  <a href="/" class="widget">Tutors</a>  
+</div>

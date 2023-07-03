@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+<html>
+<head>
+    <title>{% block title %}My Resume{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css') }}">
+</head>
+<body>  
+
+  <div class="grid-container">
+
+    <div class="grid1">
+      {% include 'programming projects/project_tree.html' %}
+    </div>
+
+    <div class="grid2">
+      <div class="wrapper">
+        <div class="section">          
+          <p><strong>Mottos:</strong></p>  
+          <p>在不断的膨胀与打脸中，苟求一丝对世界的认识 (2016-2023)</p>      
+          <p>坦途于心境，谨慎于世事 (2023-)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+        <hr>
+  </body>
+</html>
+{% endblock %}

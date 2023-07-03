@@ -1,0 +1,90 @@
+body{
+    background-color: rgba(67, 197, 197, 0.39);
+    font-family: Arial, sans-serif;
+    margin: 10px;
+    padding: 20px;
+}
+
+h1 {
+color: #000000;
+text-align: center;
+}
+
+.overall {
+font-size: 14px;
+text-align: left;
+}
+
+.section {
+margin-bottom: 30px;
+text-align: left;
+}
+
+.section h2 {
+color: #008d7a;
+margin-bottom: 10px;
+text-align: left;
+}
+
+.section p {
+margin-bottom: 5px;
+}
+
+p.spacer {
+    margin-bottom: 30px;
+}
+
+.column-container {
+display: flex; /* Use flexbox for column layout */
+justify-content: space-evenly;
+column-gap: 50px;
+}
+.column1 {
+flex-grow: 1; 
+}
+.column2 {
+flex-grow: 2; 
+}
+.warpper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+hr{
+    color: blue; 
+    height: 2px; 
+    width: 100%;
+    margin-left: auto; 
+    margin-right: auto;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+.fit-picture {
+    max-width: 100%;
+    max-height: 100%;
+    width: 40%;
+    height: auto;
+  }
+
+.project-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    grid-gap: 20px 0px;
+}
+.grid-container{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 0px 40px;
+}
+
+div.project-list{
+    align-items: center;
+}
+div.project-list a.widget{
+
+    background-color: azure;
+    text-align: center;
+    color: #000000;
+}

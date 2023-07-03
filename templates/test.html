@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+<head>
+    <title>{% block title %}Test{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/test.css') }}">
+</head>
+
+<div class="column-container">
+    <div class="column1">
+      <h2>Column 1</h2>
+      <p>Content for Column 1</p>
+    </div>
+    <div class="column2">
+      <h2>Column 2</h2>
+      <p>Content for Column 2</p>
+    </div>
+</div>
+{% endblock %}

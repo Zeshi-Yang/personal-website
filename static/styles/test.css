@@ -1,0 +1,10 @@
+.column-container {
+    display: flex; /* Use flexbox for column layout */
+  }
+  
+  .column1 {
+    flex-grow: 1; /* Distribute space equally among columns */
+  }
+  .column2 {
+    flex-grow: 3; /* Distribute space equally among columns */
+  }
