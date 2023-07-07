@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+<head>
+    <title>{% block title %}Contact Page{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css') }}">
+</head>
+<body>
+  <div class="column-container" style="display: grid; grid-template-columns: 1fr 4fr;grid-gap: 100px;"> 
+
+    <div class="column1">
+      <div class="overall">
+        <h2>Personal Information</h2>
+        <p><strong>Name:</strong> {{person.name}}</p>
+        <!-- <p><strong>Age:</strong> {{person.age}}</p> -->
+        <p><strong>Email:</strong> {{person.email}}</p>
+        <p><strong>Phone:</strong> {{person.phone}}</p>
+        <p><strong>Location:</strong> {{person.location}}</p>
+      </div>
+    </div>
+  <div class="column2">
+  <h1>Contact Me</h1>
+  <form action="/submit" method="POST">
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="question">Question:</label><br>
+    <textarea id="question" name="question" rows="4" required style="width: 100%;"></textarea><br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+</div>
+</body>
+{% endblock %}

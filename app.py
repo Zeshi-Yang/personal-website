@@ -1,4 +1,4 @@
-from flask import Flask,render_template,Blueprint,g,request
+from flask import Flask,render_template,Blueprint,g,request, render_template_string, url_for
 import sqlite3
 
 DATABASE='test.db'
@@ -44,16 +44,8 @@ person.introduction="""
     <p>I belive it will be a wonderful journy when moving towards the top supply chain.</p>
     """
 
-
 # Create a blueprint for the research sub-website
 research_bp=Blueprint('research',__name__,url_prefix='/research')
-
-@app.context_processor
-def inject_intros():
-    db = get_db()
-    cursor = db.execute('SELECT * FROM research_projects')
-    intros = cursor.fetchall()
-    return dict(intros=intros)
 
 @research_bp.route('/')
 def research():
@@ -62,8 +54,17 @@ def research():
     intros = cursor.fetchall()
     return render_template('research.html',intros=intros)
 
+@app.context_processor
+def inject_intros():
+    db = get_db()
+    research_cursor = db.execute('SELECT * FROM research_projects')
+    research_intros = research_cursor.fetchall()
+    programming_cursor = db.execute('SELECT * FROM programming_projects')
+    programming_intros = programming_cursor.fetchall()
+    return dict(research_intros=research_intros, programming_intros=programming_intros)
+
 @app.route('/research/<int:intro_id>')
-def show_intro(intro_id):
+def show_intro_1(intro_id):
     db = get_db()
     cursor = db.execute('SELECT * FROM research_projects')
     intros = cursor.fetchall()
@@ -71,10 +72,26 @@ def show_intro(intro_id):
     # Render and return the template that displays the introduction
     return render_template('/research projects/research_projects.html',intro=intros[intro_id-1])
 
+@app.route('/programming/<int:intro_id>')
+def show_intro_2(intro_id):
+
+    db = get_db()
+
+    cursor = db.execute('SELECT * FROM programming_projects')
+
+    intros = cursor.fetchall()
+    # Retrieve the introduction from the database based on the intro_id
+    # Render and return the template that displays the introduction
+
+    # Generate the image source for the specific intro_id
+    image_src = url_for('static', filename=f'images/{intro_id}.png')
+
+    return render_template('/programming projects/programming_projects.html',intro=intros[intro_id-1],image_src=image_src)
+
 
 @app.route('/')
 def home():
-    return render_template('home.html',person=person)
+    return render_template('index.html',person=person)
 
 @app.route('/trading')
 def trading():
@@ -86,14 +103,37 @@ programming_bp=Blueprint('programming',__name__,url_prefix='/programming')
 
 @programming_bp.route('/')
 def programming():
-
-    return render_template('programming.html')
+    db = get_db()
+    cursor = db.execute('SELECT * FROM programming_projects')
+    intros = cursor.fetchall()
+    return render_template('programming.html',intros=intros)
 
 
 @app.route('/contact')
 def contact():
 
-    return render_template('test.html')
+    return render_template('contact.html',person=person)
+
+@app.route('/submit', methods=['POST'])
+def submit_form():
+    if request.method == 'POST':
+        email = request.form['email']
+        question = request.form['question']
+
+        # Store the form data as required
+        # You can write the code to store the data in a database, file, or any other storage method
+        db = get_db()
+        cursor=db.execute("INSERT INTO contact (email, question) VALUES (?, ?)", (email,question))
+
+        # Commit the changes to the database
+        db.commit()
+
+        return render_template_string("""
+            <script>
+                alert("Form submitted successfully");
+                window.history.back();
+            </script>
+        """)
 
 @app.route('/test')
 def test():
@@ -104,33 +144,6 @@ def test():
 app.register_blueprint(research_bp)
 app.register_blueprint(programming_bp)
 
-# Create and populate the SQLite database with sample introduction data
-def init_db():
-    db = get_db()
-    with app.open_resource('schema.sql', mode='r') as f:
-        db.cursor().executescript(f.read())
-    db.commit()
-
-@app.cli.command('initdb')
-def initdb_command():
-    init_db()
-    print('Initialized the database.')
-
-@app.route('/add_intro', methods=['GET', 'POST'])
-def add_intro():
-    if request.method == 'POST':
-        title = request.form['title']
-        content = request.form['content']
-        conn = sqlite3.connect('test.db')
-        cursor = conn.cursor()
-        insert_command = "INSERT INTO introductions (title, content) VALUES (?, ?)"
-        cursor.execute(insert_command, (title, content))
-        conn.commit()
-        conn.close()
-
-        return "New intro added successfully!"
-
-    return render_template('add_intro.html')
 
 if __name__=='__main__':
     app.debug=True

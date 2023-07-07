@@ -45,10 +45,7 @@ flex-grow: 1;
 .column2 {
 flex-grow: 2; 
 }
-.warpper{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
+
 hr{
     color: blue; 
     height: 2px; 
@@ -56,7 +53,7 @@ hr{
     margin-left: auto; 
     margin-right: auto;
 }
-.grid-container {
+.column2 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
   }
