@@ -11,11 +11,16 @@
     <div class="column1">
       <div class="overall">
         <h2>Personal Information</h2>
+        <img 
+        class="fit-picture"           
+        src="{{ url_for('static', filename='images/self.png')}}" 
+        alt="Logo-NUS">  
         <p><strong>Name:</strong> {{person.name}}</p>
         <!-- <p><strong>Age:</strong> {{person.age}}</p> -->
         <p><strong>Email:</strong> {{person.email}}</p>
         <p><strong>Phone:</strong> {{person.phone}}</p>
-        <p><strong>Location:</strong> {{person.location}}</p>
+        <p><strong>Location:</strong> {{person.location}}</p>        
+        <a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/zeshi-yang">Linkedin</a>
       </div>
     </div>
   <div class="column2">
@@ -25,7 +30,7 @@
     <input type="email" id="email" name="email" required><br><br>
 
     <label for="question">Question:</label><br>
-    <textarea id="question" name="question" rows="4" required style="width: 100%;"></textarea><br><br>
+    <textarea id="question" name="question" rows="6" required style="width: 75%;font-family: Arial, sans-serif;"></textarea><br><br>
 
     <input type="submit" value="Submit">
   </form>

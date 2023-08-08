@@ -6,6 +6,8 @@ margin-right: 10px;
     display: flex;
     justify-content: flex-end;
     font-size: large;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
 .widget {
@@ -15,4 +17,11 @@ background-color: rgb(2, 2, 2);
 border-radius: 50px;
 text-decoration: none;
 color: rgb(255, 255, 255);
+}
+.front-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; /* Set the front page height */
+  margin-bottom: 10px;
 }

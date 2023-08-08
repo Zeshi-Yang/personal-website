@@ -1,10 +1,12 @@
-from flask import Flask,render_template,Blueprint,g,request, render_template_string, url_for
+from flask import Flask,render_template,Blueprint,g,request, render_template_string, url_for, session
 import sqlite3
+import os
 
 DATABASE='test.db'
 
 app=Flask(__name__)
 app.config.from_object(__name__)
+app.secret_key = 'my_secret_key'
 
 def get_db():
     db=getattr(g,'_database', None)
@@ -34,16 +36,20 @@ class Person:
         self.introduction=introduction
 
 person=Person('Yang Zeshi',28)
-person.contact('yangzeshi@u.nus.edu','+(86)18808263521', 'Singapore')
+person.contact('yangzeshi@u.nus.edu',' +(65) 86076345', 'Singapore')
 person.introduction="""
-    <p>Hi! My name is Yang Zeshi. Welcome to my website!</p>
-    <p>I am a Ph.D. candidate in National Unversity of Singpoare. 
-    My jajor is Mechnical Engineering. 
-    My research interest includes the additive manufacutring process, the powder dynamics for metall additive manufauctring.</p>
-    <p>The journy of studing will come to an end in 2024, and I am excited to explore the new challenges.</p>
-    <p>I belive it will be a wonderful journy when moving towards the top supply chain.</p>
+    Hi! My name is Yang Zeshi. Welcome to my website!
+    <br>
+    <br>
+    I am a highly motivated student with a strong educational background in the industrial sector. I hold a Bachelor's degree in Mineral Engineering and a Master's degree in Ferrous Metallurgy Engineering. Now I am a Ph.D. candidate in Mechanical Engineering.
+    <br>
+    <br>
+    During my studies, I have developed a deep understanding of various facets of the industrial chain, including <strong>mineral extraction processes</strong>, <strong>metallurgical transformations</strong>, and <strong>mechanical engineering principles</strong>. My educational background has equipped me with a comprehensive knowledge base and a multidisciplinary perspective that allows me to approach industrial challenges from different angles.<br>
+    <br>
+    Thanks to my supervisors and the resources provided by unviersities, I had the opportunity to engage in both theoretical and practical experiences related to industrial research and manufacturing. I conducted extensive research projects focused on optimizing industrial processes, improving efficiency, and enhancing the overall performance of materials used in the industrial sector. These research endeavors have honed my analytical skills, critical thinking abilities, and problem-solving proficiency.<br>
+    <br>    
+    I am eager to leverage my educational background and expertise to contribute to future challenges!
     """
-
 # Create a blueprint for the research sub-website
 research_bp=Blueprint('research',__name__,url_prefix='/research')
 
@@ -52,6 +58,7 @@ def research():
     db = get_db()
     cursor = db.execute('SELECT * FROM research_projects')
     intros = cursor.fetchall()
+    session['intro_id'] = 0
     return render_template('research.html',intros=intros)
 
 @app.context_processor
@@ -61,16 +68,32 @@ def inject_intros():
     research_intros = research_cursor.fetchall()
     programming_cursor = db.execute('SELECT * FROM programming_projects')
     programming_intros = programming_cursor.fetchall()
-    return dict(research_intros=research_intros, programming_intros=programming_intros)
+
+    # Get intro_id from the request or any other source
+    intro_id = session.get('intro_id')
+
+    return dict(research_intros=research_intros, programming_intros=programming_intros, intro_id=intro_id)
 
 @app.route('/research/<int:intro_id>')
 def show_intro_1(intro_id):
     db = get_db()
     cursor = db.execute('SELECT * FROM research_projects')
     intros = cursor.fetchall()
+
+    # Store intro_id in session
+    session['intro_id'] = intro_id
+
+    # Generate the image source for the specific intro_id
+    image_src = [url_for('static', filename=f'images/research/{intro_id}.png')]
+
+    file_path = image_src[0].lstrip('/')
+
+    if os.path.exists(file_path)==False:
+        image_src=['']
+
     # Retrieve the introduction from the database based on the intro_id
     # Render and return the template that displays the introduction
-    return render_template('/research projects/research_projects.html',intro=intros[intro_id-1])
+    return render_template('/research projects/research_projects.html',intro=intros[intro_id-1],image_srcs=image_src)
 
 @app.route('/programming/<int:intro_id>')
 def show_intro_2(intro_id):
@@ -84,9 +107,17 @@ def show_intro_2(intro_id):
     # Render and return the template that displays the introduction
 
     # Generate the image source for the specific intro_id
-    image_src = url_for('static', filename=f'images/{intro_id}.png')
+    image_src = [url_for('static', filename=f'images/programming/{intro_id}.png')]
 
-    return render_template('/programming projects/programming_projects.html',intro=intros[intro_id-1],image_src=image_src)
+    file_path = image_src[0].lstrip('/')
+
+    if os.path.exists(file_path)==False:
+        image_src=['']
+
+    # Store intro_id in session
+    session['intro_id'] = intro_id
+
+    return render_template('/programming projects/programming_projects.html',intro=intros[intro_id-1],image_srcs=image_src)
 
 
 @app.route('/')
@@ -106,6 +137,7 @@ def programming():
     db = get_db()
     cursor = db.execute('SELECT * FROM programming_projects')
     intros = cursor.fetchall()
+    session['intro_id'] = 0
     return render_template('programming.html',intros=intros)
 
 

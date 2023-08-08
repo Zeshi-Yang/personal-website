@@ -85,3 +85,7 @@ div.project-list a.widget{
     text-align: center;
     color: #000000;
 }
+div.project-list a.widget.highlight {
+    background-color: rgba(255, 255, 0, 0.705);
+    border: 2px solid red;
+  }

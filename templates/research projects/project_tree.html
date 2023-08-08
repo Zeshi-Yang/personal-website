@@ -2,11 +2,6 @@
 <h2>Projects</h2>
 <div class="project-list" style="grid-template-columns: 1fr 1fr;">
   {% for intro in research_intros %}
-      <a href="{{ url_for('show_intro_1', intro_id=intro['id']) }}" class="widget">{{ intro['title'] }}</a>
+      <a href="{{ url_for('show_intro_1', intro_id=intro['id']) }}" class="widget {% if intro['id'] == intro_id %}highlight{% endif %}">{{ intro['title'] }}</a>
   {% endfor %}    
-  <a href="/" class="widget">Filament Deposition Modelling</a>
-  <a href="/" class="widget">Molding Injection</a>
-  <a href="/" class="widget">Acoustic Signal Emissions</a>
-  <a href="/" class="widget">Collaboration</a>  
-  <a href="/" class="widget">Tutors</a>  
 </div>

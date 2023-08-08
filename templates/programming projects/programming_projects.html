@@ -18,8 +18,10 @@
         <div class="section">
           <p class="spacer" style="margin-bottom: 20px;"></p>
           <h2>{{ intro['full_title'] }}</h2>
-          <p style="white-space: pre-line;">{{ intro['content'] | safe }}</p>   
-          <img class="fit-picture" src="{{ image_src }}" style="display: block;margin: 0 auto;"> 
+          <p style="white-space: pre-line;">{{ intro['content'] | safe }}</p>
+          {% for image_src in image_srcs %}
+          <img class="fit-picture" src="{{ image_src }}" style="display: block;margin: 0 auto;width: auto;"> 
+          {% endfor %}
         </div>
       </div>
     </div>
