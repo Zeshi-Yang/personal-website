@@ -14,17 +14,30 @@
 
     <div class="column1">
       <div class="overall">
-        <h2>Personal Information</h2>
-        <img style="width: auto;"
+        <img style="width: auto; border-radius: 10px;"
         class="fit-picture"           
         src="{{ url_for('static', filename='images/self.png')}}" 
-        alt="Logo-NUS">  
-        <p><strong>Name:</strong> {{person.name}}</p>
+        alt="self">  
+        <h2 class="name" style="color: #144cf7; text-align: center; margin-bottom: 0px;">{{person.name}}</h2>
         <!-- <p><strong>Age:</strong> {{person.age}}</p> -->
-        <p><strong>Email:</strong> {{person.email}}</p>
-        <p><strong>Phone:</strong> {{person.phone}}</p>
-        <p><strong>Location:</strong> {{person.location}}</p>        
-        <a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/zeshi-yang">Linkedin</a>
+        <p style="text-align: center;margin-top: 0px; font-size: small;">Ph.D. Candidate</p>
+        <div style="display: flex; align-items: center; justify-content: start;">
+          <!-- <img style="width: 30px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/mail-blue.png')}}" alt="self"> -->
+          <p style="margin-left: 5px;">{{person.email}}</p>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: start;">
+          <img style="width: 30px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/tel-blue.png')}}" alt="self">
+          <p style="margin-left: 5px;">{{person.phone}}</p>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: start;">
+          <img style="width: 30px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/add-blue.png')}}" alt="self">
+          <p style="margin-left: 5px;">{{person.location}}</p>
+        </div>      
+        <div style="display: flex; align-items: center; justify-content: start;">
+          <img style="width: 30px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/link-blue.png')}}" alt="self">
+          <p style="margin-left: 5px;">
+          <a href="https://www.linkedin.com/in/zeshi-yang">Linkedin</a></p>          
+        </div>      
       </div>
     </div>
 
@@ -32,8 +45,8 @@
     <div class="column2">
       <div class="wrapper">
         <div class="section">
-          <h2>About me</h2> 
-          <p>{{ person.introduction | safe}}</p>
+          <h2 style="margin-top: 0;">About me</h2> 
+          <p style="text-align: justify;">{{ person.introduction | safe}}</p>
           <p class="spacer"></p>
           <p><strong>Mottos:</strong></p>            
           <p>在不断的膨胀与打脸中，苟求一丝对世界的认识 (2016-2023)</p>   
@@ -109,4 +122,5 @@
   </div> 
 </body>
 </html>
+<hr>
 {% endblock %}

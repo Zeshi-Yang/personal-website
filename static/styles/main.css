@@ -1,8 +1,9 @@
 body{
-    background-color: rgba(67, 197, 197, 0.39);
     font-family: Arial, sans-serif;
-    margin: 10px;
-    padding: 20px;
+    margin: 0px;
+    background-color: #f9f9f9;
+    padding-top: 0px;
+    margin-top: 0;
 }
 
 h1 {
@@ -13,6 +14,10 @@ text-align: center;
 .overall {
 font-size: 14px;
 text-align: left;
+border-radius: 10px;
+background-color: rgb(220, 220, 220);
+border: 10px;
+padding: 10px;
 }
 
 .section {
@@ -21,7 +26,7 @@ text-align: left;
 }
 
 .section h2 {
-color: #008d7a;
+color: rgb(0 0 144);
 margin-bottom: 10px;
 text-align: left;
 }
@@ -38,6 +43,7 @@ p.spacer {
 display: flex; /* Use flexbox for column layout */
 justify-content: space-evenly;
 column-gap: 50px;
+margin: 30px;
 }
 .column1 {
 flex-grow: 1; 
@@ -74,18 +80,32 @@ hr{
     display: grid;
     grid-template-columns: 1fr 3fr;
     grid-gap: 0px 40px;
+    margin: 30px;
 }
 
 div.project-list{
     align-items: center;
+    gap: 20px;
 }
 div.project-list a.widget{
-
-    background-color: azure;
+    border-radius: 20px;
+    background-color: rgb(14, 189, 248);
     text-align: center;
     color: #000000;
 }
 div.project-list a.widget.highlight {
     background-color: rgba(255, 255, 0, 0.705);
     border: 2px solid red;
+  }
+.h2.name{
+    align-items: center; 
+    color: rgb(0, 213, 255);
+    font-size: 1.2em;    
+}
+
+.section a:visited {
+    color: blue; /* Color for visited links */
+  }
+.overall a:visited {
+    color: blue; /* Color for visited links */
   }
