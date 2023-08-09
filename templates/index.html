@@ -26,15 +26,15 @@
           <p style="margin-left: 5px;">{{person.email}}</p>
         </div>
         <div style="display: flex; align-items: center; justify-content: start;">
-          <img style="width: 30px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/tel-blue.png')}}" alt="self">
+          <img style="width: 30px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/tel-blue.png')}}" alt="tel-icon">
           <p style="margin-left: 5px;">{{person.phone}}</p>
         </div>
         <div style="display: flex; align-items: center; justify-content: start;">
-          <img style="width: 30px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/add-blue.png')}}" alt="self">
+          <img style="width: 30px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/add-blue.png')}}" alt="address-icon">
           <p style="margin-left: 5px;">{{person.location}}</p>
         </div>      
         <div style="display: flex; align-items: center; justify-content: start;">
-          <img style="width: 30px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/link-blue.png')}}" alt="self">
+          <img style="width: 30px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/link-blue.png')}}" alt="link-icon">
           <p style="margin-left: 5px;">
           <a href="https://www.linkedin.com/in/zeshi-yang">Linkedin</a></p>          
         </div>      
@@ -45,15 +45,34 @@
     <div class="column2">
       <div class="wrapper">
         <div class="section">
-          <h2 style="margin-top: 0;">About me</h2> 
+          <h2 style="margin-top: 0;">Who I am</h2> 
+          <div class="keyword-grid">
+            <div class="keywordbox"><p class="keyword"><span style="color: rgb(254,217,2);">#</span>Problem-solving</p></div> 
+            <div class="keywordbox"><p class="keyword"><span style="color: rgb(254,217,2);">#</span>Multidisciplinary</p></div>
+            <div class="keywordbox"><p class="keyword"><span style="color: rgb(254,217,2);">#</span>Innovative</p></div>
+          </div>
           <p style="text-align: justify;">{{ person.introduction | safe}}</p>
           <p class="spacer"></p>
-          <p><strong>Mottos:</strong></p>            
-          <p>在不断的膨胀与打脸中，苟求一丝对世界的认识 (2016-2023)</p>   
-          <p>In the face of growth and humbling experiences, strive to grasp the essence of the world. (2016-2023)</p> 
-          <br>  
-          <p>坦途于心境，谨慎于世事 (2023-)</p>
-          <p>Embrace an open mindset, wield caution in matters of the world. (2023-)</p>
+        <div class="section">
+          <h2 style="margin-top: 0;">My mottos</h2>  
+          <div style="display: grid; grid-template-columns: 1fr 1fr; column-gap: 30px; justify-content: space-between;column-gap: 100px;">    
+          <div style="border: solid;border-color: rgb(254,217,2);border-radius: 15px;">     
+            <div style="margin: 20px;">
+            <p style="color: rgb(254,217,2);font-weight: bold;">2016-2023</p>   
+            <p>In the face of growth and humbling experiences, strive to grasp the essence of the world</p> 
+            <p>在不断的膨胀与打脸中，苟求一丝对世界的认识</p>   
+            </div>
+          </div> 
+          
+            <div style="border: solid;border-color: rgb(254,217,2);border-radius: 15px;">   
+              <div style="margin: 20px;">  
+                <p style="color: rgb(254,217,2);font-weight: bold;">2023-</p>
+            <p>Embrace an open mindset, wield caution in matters of the world</p>
+            <p>坦途于心境，谨慎于世事</p>
+          </div>
+        </div>
+        </div>  
+        </div>
         </div>
         <hr>
         <div class="section">
@@ -64,9 +83,8 @@
             class="fit-picture"           
             src="{{ url_for('static', filename='images/NUS.png')}}" 
             alt="Logo-NUS">  
-            <p>Ph.D. of Engineering</p>
-            <p><strong>Mechanical Engineering</strong></p>
-            <p style="margin-bottom: auto;">National University of Singapore</p>
+            <p style="margin-bottom: auto;font-weight: bold;">National University of Singapore</p>
+            <p>Ph.D. of Mechanical Engineering</p>
             <p>2020 - present</p>  
           </div>   
           <div style="text-align: center;">      
@@ -74,9 +92,8 @@
             class="fit-picture"           
             src="{{ url_for('static', filename='images/CSU.png')}}" 
             alt="Logo-CSU">
-            <p>Master of Engineering</p>
-            <p><strong>Ferrous Metallurgy Engineering</strong></p>
-            <p>Central South University</p>
+            <p style="font-weight: bold;">Central South University</p>
+            <p>Master of Metallurgy Engineering</p>
             <p>2017 - 2020</p>
           </div> 
             <div style="text-align: center;">   
@@ -84,35 +101,67 @@
             class="fit-picture"           
             src="{{ url_for('static', filename='images/CSU.png')}}" 
             alt="Logo-NUS">
-            <p>Bachelor of Engineering</p>
-            <p><strong>Mineral Engineering</strong></p>
-            <p>Central South University</p>
+            <p style="font-weight: bold;">Central South University</p>
+            <p>Bachelor of Mineral Engineering</p>            
             <p>2013 - 2017</p>
             </div>
           </div>          
         </div>
         <hr>
         <div class="section">
-          <h2>Skills</h2>
-          <div style="display: grid; grid-template-columns: 1fr 1fr;">
-          <p><strong>Computational Fluid Dynamics</strong></p>
-          <p><strong>Discrete Element Method</strong></p>
-          <p><strong>Python</strong></p>
-          <p> </p>
-            <p><strong>Fast Learning</strong></p>
-            <p><strong>Problem-Solving</strong></p>
-            <p><strong>Adaptability</strong></p>
-            <p><strong>Teamwork</strong></p>
+          <h2>Skill set</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr;margin-left:50px">
+            <div style="display: flex; align-items: baseline;">
+              <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
+              <p style="margin-left: 10px;"><strong>Computational Fluid Dynamics</strong></p>
+            </div>
+            <div style="display: flex; align-items: baseline;">
+              <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
+              <p style="margin-left: 10px;"><strong>Discrete Element Method</strong></p>
+            </div>
+            <div style="display: flex; align-items: baseline;">
+              <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
+              <p style="margin-left: 10px;"><strong>Python</strong></p>
+            </div>
+            <p class="spacer"></p>
+            <div style="display: flex; align-items: baseline;">
+              <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
+              <p style="margin-left: 10px;"><strong>Fast Learning</strong></p>
+            </div>
+            <div style="display: flex; align-items: baseline;">
+              <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
+              <p style="margin-left: 10px;"><strong>Problem-Solving</strong></p>
+            </div>
+            <div style="display: flex; align-items: baseline;">
+              <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
+              <p style="margin-left: 10px;"><strong>Adaptability</strong></p>
+            </div>
+            <div style="display: flex; align-items: baseline;">
+              <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
+              <p style="margin-left: 10px;"><strong>Teamwork</strong></p>
+            </div>
           </div>
         </div>
         <hr>
         <div class="section">
           <h2>Interests</h2>
-          <div style="display: grid; grid-template-columns: 1fr 1fr;">       
-            <p><strong>Cycling</strong></p>   
-            <p><strong>Badminton</strong></p>   
-            <p><strong>Chinese Stock Market</strong></p>   
-            <p><strong>Computer Games</strong></p>   
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;">       
+            <div style="text-align: center;">
+              <img style="width: 60px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/bike.png')}}" alt="bike-icon">
+              <p>Cycling</p>
+            </div>   
+            <div style="text-align: center;">
+              <img style="width: 60px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/badminton.png')}}" alt="badminton-icon">
+              <p>Badminton</p>
+            </div>  
+              <div style="text-align: center;">
+                <img style="width: 60px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/stock.png')}}" alt="stock-icon">
+                <p>Chinese Stock Market</p>
+              </div>   
+              <div style="text-align: center;">
+                <img style="width: 60px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/game.png')}}" alt="game-icon">
+              <p>Computer Games</p>
+            </div>   
           </div>
         </div>
     </div>
