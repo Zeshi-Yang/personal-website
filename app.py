@@ -1,4 +1,4 @@
-from flask import Flask,render_template,Blueprint,g,request, render_template_string, url_for, session
+from flask import Flask,render_template,Blueprint,g,request, render_template_string, url_for, session,current_app
 import sqlite3
 import os
 
@@ -9,11 +9,20 @@ app.config.from_object(__name__)
 app.secret_key = 'my_secret_key'
 
 def get_db():
-    db=getattr(g,'_database', None)
-    if db is None:
-        db=g._datase=sqlite3.connect(app.config['DATABASE'])
-        db.row_factory=sqlite3.Row
-    return db
+    if 'db' not in g:
+        g.db = sqlite3.connect(
+            current_app.config['DATABASE'],
+            detect_types=sqlite3.PARSE_DECLTYPES
+        )
+        g.db.row_factory = sqlite3.Row
+
+    return g.db
+# def get_db():
+#     db=getattr(g,'_database', None)
+#     if db is None:
+#         db=g._datase=sqlite3.connect(app.config['DATABASE'])
+#         db.row_factory=sqlite3.Row
+#     return db
 
 @app.teardown_appcontext
 def close_connection(exception):
