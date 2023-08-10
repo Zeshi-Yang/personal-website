@@ -3,7 +3,7 @@
 {% block content %}
 <html>
 <head>
-    <title>{% block title %}My Resume{% endblock %}</title>
+    <title>{% block title %}Research project-list{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css') }}">
 </head>
 <body>  
@@ -15,8 +15,8 @@
     </div>
     <div class="grid2">
       <div class="wrapper">
-        <div class="section" style="transition: marg;">
-          <h2 style="text-align: justify;">{{ intro['full_title'] }}</h2>
+        <div class="section">
+          <h2>{{ intro['full_title'] }}</h2>
           <p style="white-space: pre-line;text-align: justify;">{{ intro['content'] | safe }}</p>     
           {% for image_src in image_srcs %}
           <img class="fit-picture" src="{{ image_src }}" style="display: block;margin: 0 auto;width: auto;"> 

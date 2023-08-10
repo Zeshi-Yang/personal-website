@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css') }}">
 </head>
 <body>
-  <div class="column-container" style="display: grid; grid-template-columns: 165px 4fr;grid-gap: 100px;"> 
+  <div class="column-container" style="display: grid; grid-template-columns: 165px 4fr;grid-gap: 30px;"> 
 
     <div class="column1">
       <div class="overall">
@@ -32,20 +32,20 @@
         <div style="display: flex; align-items: center; justify-content: start;">
           <img style="width: 30px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/link-blue.png')}}" alt="self">
           <p style="margin-left: 5px;">
-          <a href="https://www.linkedin.com/in/zeshi-yang">Linkedin</a></p>          
+          <a href="https://www.linkedin.com/in/zeshi-yang" style="text-decoration: none;">Linkedin</a></p>          
         </div>      
       </div>
     </div>
   <div class="column2">
-  <h1>Contact Me</h1>
+  <h1 style="color: #144cf7; font-size: x-large;">Let's keep in touch!</h1>
   <form action="/submit" method="POST">
-    <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email" required><br><br>
+    <label for="email" >Your email here</label><br>
+    <input type="email" id="email" name="email" required style="margin-top: 10px;"><br><br>
 
-    <label for="question">Question:</label><br>
-    <textarea id="question" name="question" rows="6" required style="width: 75%;font-family: Arial, sans-serif;"></textarea><br><br>
+    <label for="question">Leave a message</label><br>
+    <textarea id="question" name="question" rows="12" required style="width: 100%;font-family: Arial, sans-serif; margin-top: 10px;"></textarea><br><br>
 
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit" class="submit-botton">
   </form>
 </div>
 </div>

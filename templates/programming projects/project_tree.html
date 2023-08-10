@@ -1,6 +1,5 @@
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css') }}">
-<h2 style="margin-left: 10px;">Projects</h2>
-<div class="project-list" style="grid-template-columns: 1fr; width: 80%; align-items: center;">
+<div class="project-list" style="grid-template-columns: 0.8fr; margin-top: 20px; justify-content: start;">
   {% for project in programming_intros %}
   <a href="{{ url_for('show_intro_2', intro_id=project['id']) }}" class="widget {% if project['id'] == intro_id %}highlight{% endif %}">{{ project['title'] }}</a>
   {% endfor %}

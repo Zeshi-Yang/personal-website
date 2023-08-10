@@ -44,7 +44,7 @@ person.introduction="""
     I am a highly motivated student with a strong educational background in the industrial sector. I hold a Bachelor's degree in Mineral Engineering and a Master's degree in Ferrous Metallurgy Engineering. Now I am a Ph.D. candidate in Mechanical Engineering.
     <br>
     <br>
-    During my studies, I have developed a deep understanding of various facets of the industrial chain, including <strong>mineral extraction processes</strong>, <strong>metallurgical transformations</strong>, and <strong>mechanical engineering principles</strong>. My educational background has equipped me with a comprehensive knowledge base and a multidisciplinary perspective that allows me to approach industrial challenges from different angles.<br>
+    During my studies, I have developed a deep understanding of various facets of the industrial chain, including <span style="color:#144cf7"><strong>mineral extraction processes</strong></span>, <span style="color:#144cf7"><strong>metallurgical transformations</strong></span>, and <span style="color:#144cf7"><strong>mechanical engineering principles</strong></span>. My educational background has equipped me with a comprehensive knowledge base and a multidisciplinary perspective that allows me to approach industrial challenges from different angles.<br>
     <br>
     Thanks to my supervisors and the resources provided by unviersities, I had the opportunity to engage in both theoretical and practical experiences related to industrial research and manufacturing. I conducted extensive research projects focused on optimizing industrial processes, improving efficiency, and enhancing the overall performance of materials used in the industrial sector. These research endeavors have honed my analytical skills, critical thinking abilities, and problem-solving proficiency.<br>
     <br>    
@@ -178,5 +178,5 @@ app.register_blueprint(programming_bp)
 
 
 if __name__=='__main__':
-    app.debug=True
+    # app.debug=True
     app.run()    
