@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+<html>
+<head>
+    <title>{% block title %}My Resume{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css') }}">
+</head>
+<body>
+
+  <div class="grid-container">
+
+    <div class="grid1">
+      {% include 'programming projects/project_tree.html' %}
+    </div>
+
+    <div class="grid2">
+      <div class="wrapper">
+        <div class="section">
+          <p style="color: #144cf7;font-weight: bold;font-size: 25px;text-align: center; margin-top: 20px;">Welcome to my investment research projects portfolio!</p>
+          <p style="white-space: pre-line; line-height: normal+5px;text-align: justify; margin-top: 0px;">
+            These projects were initially developed as personal experiments during my studies, and have since evolved into applied tools shaped by real-world investment workflows during my internship.
+
+            My most recent work includes the development of an advanced <a href="/investment_research/1">stock screening system</a>, combining financial metric weighting, sector-specific adjustments, and automated ranking logic. This project integrates data from Refinitiv and outputs dynamic reports, helping prioritize equities for fundamental analysis.
+
+            I’ve also built a <a href="/investment_research/2">news aggregation engine</a> that leverages keyword filtering, sentiment analysis, and LLM-based summarization to extract actionable insights from financial news. This tool enhances real-time awareness around portfolio-relevant companies.
+
+            Another highlight is the <a href="/investment_research/3">macro dashboard</a>, designed using Python Dash and Refinitiv data. It visualizes key macroeconomic indicators to guide top-down investment decisions, with interactive filters and country/time-based views for flexibility.
+
+            Previously, I created a <a href="/investment_research/4">trading signal framework</a>—my first attempt at applying programming to market logic. Though initially hobby-driven, it laid the foundation for my ongoing research into systematic investing.
+
+            Earlier personal projects include <a href="/investment_research/5">web scraping scripts</a> to collect structured data across online sources, and an <a href="/investment_research/6">account tracking program</a> for secure personal finance monitoring.
+
+            These projects represent a shift from hobbyist coding to real-world research tools, blending my passion for finance, data, and automation. They continue to strengthen my adaptability and deepen my understanding of how technology supports modern investment analysis.
+          </p>
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+        <hr>
+  </body>
+</html>
+{% endblock %}

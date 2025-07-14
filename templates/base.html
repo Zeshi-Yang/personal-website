@@ -8,15 +8,15 @@
   <div class="banner">
   <div class="logo">
     <a href="/" data-wpel-link="internal">
-    <img style="max-width: 60px; max-height: 100%; "                   
-        src="{{ url_for('static', filename='images/logo.png')}}" 
-        alt="Logo-website"> 
+    <img style="max-width: 60px; max-height: 100%; "
+        src="{{ url_for('static', filename='images/logo.png')}}"
+        alt="Logo-website">
     </a>
   </div>
   <div class="nav" style="align-self: center;">
     <a href="/" class="widget {% if request.path == '/' %}active{% endif %}">Home</a>
-    <a href="/research" class="widget {% if 'research' in request.path %}active{% endif %}">Research</a>    
-    <a href="/programming" class="widget {% if 'programming' in request.path %}active{% endif %}">Programming</a>
+    <a href="/investment_research" class="widget {% if 'investment_research' in request.path %}active{% endif %}">Investment Research</a>
+    <a href="/academic_research" class="widget {% if 'academic_research' in request.path %}active{% endif %}">Academic Research</a>
     <a href="/contact" class="widget {% if 'contact' in request.path %}active{% endif %}">Contact</a>
     <!-- <a href="/test" class="widget" {% if request.path == '/test' %}class="active"{% endif %}>Test</a> -->
   </div>
@@ -25,6 +25,6 @@
   {% endblock %}
 </body>
 <footer style="text-align:center;">
-    <p>&copy; 2023 Personal Website. All rights reserved.</p>
+    <p>&copy; 2023 - 2025 Personal Website. All rights reserved.</p>
 </footer>
-</html> 
+</html>

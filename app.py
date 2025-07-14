@@ -1,6 +1,8 @@
-from flask import Flask,render_template,Blueprint,g,request, render_template_string, url_for, session
+# Python
+from flask import Flask, render_template, Blueprint, g, request, render_template_string, url_for, session, current_app
 import sqlite3
 import os
+from socket import gethostname
 
 DATABASE='test.db'
 
@@ -9,11 +11,14 @@ app.config.from_object(__name__)
 app.secret_key = 'my_secret_key'
 
 def get_db():
-    db=getattr(g,'_database', None)
-    if db is None:
-        db=g._datase=sqlite3.connect(app.config['DATABASE'])
-        db.row_factory=sqlite3.Row
-    return db
+    if 'db' not in g:
+        g.db = sqlite3.connect(
+            current_app.config['DATABASE'],
+            detect_types=sqlite3.PARSE_DECLTYPES
+        )
+        g.db.row_factory = sqlite3.Row
+
+    return g.db
 
 @app.teardown_appcontext
 def close_connection(exception):
@@ -24,34 +29,39 @@ def close_connection(exception):
 class Person:
 
     def __init__(self, name,age=0):
-        self.name = name      
-        self.age = age      
+        self.name = name
+        self.age = age
 
     def contact(self,email='',phone='',location=''):
         self.email=email
         self.phone=phone
-        self.location=location    
+        self.location=location
 
     def self_introduction(self,introduction=''):
         self.introduction=introduction
 
-person=Person('Yang Zeshi',28)
+person=Person('Yang Zeshi',30)
 person.contact('yangzeshi@u.nus.edu',' +(65) 86076345', 'Singapore')
 person.introduction="""
     Hi! My name is Yang Zeshi. Welcome to my website!
     <br>
     <br>
-    I am a highly motivated student with a strong educational background in the industrial sector. I hold a Bachelor's degree in Mineral Engineering and a Master's degree in Ferrous Metallurgy Engineering. Now I am a Ph.D. candidate in Mechanical Engineering.
+    I am a highly motivated student with a strong educational background in the industrial sector. I hold a Bachelor's degree in Mineral Engineering and a Master's degree in Ferrous Metallurgy Engineering. Now, I am a Ph.D. candidate in Mechanical Engineering.
     <br>
     <br>
-    During my studies, I have developed a deep understanding of various facets of the industrial chain, including <span style="color:#144cf7"><strong>mineral extraction processes</strong></span>, <span style="color:#144cf7"><strong>metallurgical transformations</strong></span>, and <span style="color:#144cf7"><strong>mechanical engineering principles</strong></span>. My educational background has equipped me with a comprehensive knowledge base and a multidisciplinary perspective that allows me to approach industrial challenges from different angles.<br>
+    During my studies, I have developed a deep understanding of various facets of the industrial chain, including <span style="color:#144cf7"><strong>mineral extraction processes</strong></span>, <span style="color:#144cf7"><strong>metallurgical transformations</strong></span>, and <span style="color:#144cf7"><strong>mechanical engineering principles</strong></span>. My educational background has equipped me with a comprehensive knowledge base and a multidisciplinary perspective that allows me to approach industrial challenges from different angles.
     <br>
-    Thanks to my supervisors and the resources provided by unviersities, I had the opportunity to engage in both theoretical and practical experiences related to industrial research and manufacturing. I conducted extensive research projects focused on optimizing industrial processes, improving efficiency, and enhancing the overall performance of materials used in the industrial sector. These research endeavors have honed my analytical skills, critical thinking abilities, and problem-solving proficiency.<br>
-    <br>    
-    I am eager to leverage my educational background and expertise to contribute to future challenges!
-    """
+    <br>
+    Over the past year, I have also cultivated a strong passion for <span style="color:#144cf7"><strong>investment research</strong></span>—especially in areas that blend data analysis, automation, and equity fundamentals. Through a recent internship at a family office, I developed tools for <a href="/investment_research/1">stock screening</a>, <a href="/investment_research/2">news aggregation</a>, and <a href="/investment_research/3">macroeconomic analysis</a>, applying programming skills to support real-world investment workflows.
+    <br>
+    <br>
+    These experiences have deepened my interest in the financial markets and sharpened my ability to extract insights from complex datasets. I now seek opportunities to contribute to <strong>equity research</strong> and <strong>buy-side analysis</strong> by leveraging both my technical background and my growing financial expertise.
+    <br>
+    <br>
+    I am eager to bridge the gap between engineering and investing, and to contribute meaningfully to research-driven investment strategies!
+"""
 # Create a blueprint for the research sub-website
-research_bp=Blueprint('research',__name__,url_prefix='/research')
+research_bp=Blueprint('research',__name__,url_prefix='/academic_research')
 
 @research_bp.route('/')
 def research():
@@ -59,7 +69,7 @@ def research():
     cursor = db.execute('SELECT * FROM research_projects')
     intros = cursor.fetchall()
     session['intro_id'] = 0
-    return render_template('research.html',intros=intros)
+    return render_template('academic_research.html',intros=intros)
 
 @app.context_processor
 def inject_intros():
@@ -74,7 +84,7 @@ def inject_intros():
 
     return dict(research_intros=research_intros, programming_intros=programming_intros, intro_id=intro_id)
 
-@app.route('/research/<int:intro_id>')
+@app.route('/academic_research/<int:intro_id>')
 def show_intro_1(intro_id):
     db = get_db()
     cursor = db.execute('SELECT * FROM research_projects')
@@ -95,7 +105,7 @@ def show_intro_1(intro_id):
     # Render and return the template that displays the introduction
     return render_template('/research projects/research_projects.html',intro=intros[intro_id-1],image_srcs=image_src)
 
-@app.route('/programming/<int:intro_id>')
+@app.route('/investment_research/<int:intro_id>')
 def show_intro_2(intro_id):
 
     db = get_db()
@@ -130,7 +140,7 @@ def trading():
     return render_template('trading.html')
 
 # Create a blueprint for the research sub-website
-programming_bp=Blueprint('programming',__name__,url_prefix='/programming')
+programming_bp=Blueprint('programming',__name__,url_prefix='/investment_research')
 
 @programming_bp.route('/')
 def programming():
@@ -138,7 +148,7 @@ def programming():
     cursor = db.execute('SELECT * FROM programming_projects')
     intros = cursor.fetchall()
     session['intro_id'] = 0
-    return render_template('programming.html',intros=intros)
+    return render_template('investment_research.html',intros=intros)
 
 
 @app.route('/contact')
@@ -178,5 +188,7 @@ app.register_blueprint(programming_bp)
 
 
 if __name__=='__main__':
-    # app.debug=True
-    app.run()    
+    db.create_all()
+    if 'liveconsole' not in gethostname():
+        app.run()
+        # app.run(debug=True, port=3000)

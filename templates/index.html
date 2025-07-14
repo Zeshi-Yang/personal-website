@@ -2,22 +2,22 @@
 {% extends 'base.html' %}
 {% block content %}
 <html>
-  
+
 <head>
     <title>{% block title %}My Resume{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css') }}">
 </head>
 
-<body>  
+<body>
 
   <div class="column-container">
 
     <div class="column1">
       <div class="overall">
         <img style="width: auto; border-radius: 10px;"
-        class="fit-picture"           
-        src="{{ url_for('static', filename='images/self.png')}}" 
-        alt="self">  
+        class="fit-picture"
+        src="{{ url_for('static', filename='images/self.png')}}"
+        alt="self">
         <h2 class="name" style="color: #144cf7; text-align: center; margin-bottom: 0px;">{{person.name}}</h2>
         <!-- <p><strong>Age:</strong> {{person.age}}</p> -->
         <p style="text-align: center;margin-top: 0px; font-size: small;">Ph.D. Candidate</p>
@@ -32,85 +32,102 @@
         <div style="display: flex; align-items: center; justify-content: start;">
           <img style="width: 30px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/add-blue.png')}}" alt="address-icon">
           <p style="margin-left: 5px;">{{person.location}}</p>
-        </div>      
+        </div>
         <div style="display: flex; align-items: center; justify-content: start;">
           <img style="width: 30px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/link-blue.png')}}" alt="link-icon">
           <p style="margin-left: 5px;">
-          <a href="https://www.linkedin.com/in/zeshi-yang" style="text-decoration: none;">Linkedin</a></p>          
-        </div>      
+          <a href="https://www.linkedin.com/in/zeshi-yang" style="text-decoration: none;">Linkedin</a></p>
+        </div>
       </div>
     </div>
 
-    
+
     <div class="column2">
       <div class="wrapper">
         <div class="section">
-          <h2 style="margin-top: 0;">Who I am</h2> 
+          <h2 style="margin-top: 0;">Who I am</h2>
           <div class="keyword-grid">
-            <div class="keywordbox"><p class="keyword"><span style="color: rgb(254,217,2);">#</span>Problem-solving</p></div> 
+            <div class="keywordbox"><p class="keyword"><span style="color: rgb(254,217,2);">#</span>Problem-solving</p></div>
             <div class="keywordbox"><p class="keyword"><span style="color: rgb(254,217,2);">#</span>Multidisciplinary</p></div>
             <div class="keywordbox"><p class="keyword"><span style="color: rgb(254,217,2);">#</span>Innovative</p></div>
           </div>
           <p style="text-align: justify;">{{ person.introduction | safe}}</p>
           <p class="spacer"></p>
         <div class="section">
-          <h2 style="margin-top: 0;">My mottos</h2>  
-          <div style="display: grid; grid-template-columns: 1fr 1fr; column-gap: 30px; justify-content: space-between;column-gap: 100px;">    
-          <div style="border: solid;border-color: rgb(254,217,2);border-radius: 15px;">     
+          <h2 style="margin-top: 0;">My mottos</h2>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; column-gap: 30px; justify-content: space-between;column-gap: 100px;">
+          <div style="border: solid;border-color: rgb(254,217,2);border-radius: 15px;">
             <div style="margin: 20px;">
-            <p style="color: rgb(254,217,2);font-weight: bold;">2016-2023</p>   
-            <p>In the face of growth and humbling experiences, strive to grasp the essence of the world</p> 
-            <p>在不断的膨胀与打脸中，苟求一丝对世界的认识</p>   
+            <p style="color: rgb(254,217,2);font-weight: bold;">2016-2023</p>
+            <p>In the face of growth and humbling experiences, strive to grasp the essence of the world</p>
+            <p>在不断的膨胀与打脸中，苟求一丝对世界的认识</p>
             </div>
-          </div> 
-          
-            <div style="border: solid;border-color: rgb(254,217,2);border-radius: 15px;">   
-              <div style="margin: 20px;">  
+          </div>
+
+            <div style="border: solid;border-color: rgb(254,217,2);border-radius: 15px;">
+              <div style="margin: 20px;">
                 <p style="color: rgb(254,217,2);font-weight: bold;">2023-</p>
             <p>Embrace an open mindset, wield caution in matters of the world</p>
             <p>坦途于心境，谨慎于世事</p>
           </div>
         </div>
-        </div>  
+        </div>
         </div>
         </div>
         <hr>
         <div class="section">
           <h2>Education</h2>
           <div class="grid-container">
-            <div style="text-align: center;">   
+            <div style="text-align: center;">
             <img
-            class="fit-picture"           
-            src="{{ url_for('static', filename='images/NUS.png')}}" 
-            alt="Logo-NUS">  
+            class="fit-picture"
+            src="{{ url_for('static', filename='images/NUS.png')}}"
+            alt="Logo-NUS">
             <p style="margin-bottom: auto;font-weight: bold;">National University of Singapore</p>
             <p>Ph.D. of Mechanical Engineering</p>
-            <p>2020 - present</p>  
-          </div>   
-          <div style="text-align: center;">      
+            <p>2020 - present</p>
+          </div>
+          <div style="text-align: center;">
             <img
-            class="fit-picture"           
-            src="{{ url_for('static', filename='images/CSU.png')}}" 
+            class="fit-picture"
+            src="{{ url_for('static', filename='images/CSU.png')}}"
             alt="Logo-CSU">
             <p style="font-weight: bold;">Central South University</p>
             <p>Master of Metallurgy Engineering</p>
             <p>2017 - 2020</p>
-          </div> 
-            <div style="text-align: center;">   
+          </div>
+            <div style="text-align: center;">
             <img
-            class="fit-picture"           
-            src="{{ url_for('static', filename='images/CSU.png')}}" 
+            class="fit-picture"
+            src="{{ url_for('static', filename='images/CSU.png')}}"
             alt="Logo-NUS">
             <p style="font-weight: bold;">Central South University</p>
-            <p>Bachelor of Mineral Engineering</p>            
+            <p>Bachelor of Mineral Engineering</p>
             <p>2013 - 2017</p>
             </div>
-          </div>          
+          </div>
         </div>
         <hr>
         <div class="section">
           <h2>Skill set</h2>
             <div style="display: grid; grid-template-columns: 1fr 1fr;margin-left:50px">
+            <div style="display: flex; align-items: baseline;">
+              <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
+              <p style="margin-left: 10px;"><strong>Investment Research</strong></p>
+            </div>
+            <div style="display: flex; align-items: baseline;">
+              <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
+              <p style="margin-left: 10px;"><strong>Equity Research</strong></p>
+            </div>
+            <div style="display: flex; align-items: baseline;">
+              <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
+              <p style="margin-left: 10px;"><strong>Engineering</strong></p>
+            </div>
+            <div style="display: flex; align-items: baseline;">
+              <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
+              <p style="margin-left: 10px;"><strong>Python</strong></p>
+            </div>
+            <!--<p class="spacer"></p>-->
             <div style="display: flex; align-items: baseline;">
               <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
               <p style="margin-left: 10px;"><strong>Computational Fluid Dynamics</strong></p>
@@ -119,11 +136,6 @@
               <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
               <p style="margin-left: 10px;"><strong>Discrete Element Method</strong></p>
             </div>
-            <div style="display: flex; align-items: baseline;">
-              <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
-              <p style="margin-left: 10px;"><strong>Python</strong></p>
-            </div>
-            <p class="spacer"></p>
             <div style="display: flex; align-items: baseline;">
               <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
               <p style="margin-left: 10px;"><strong>Fast Learning</strong></p>
@@ -145,30 +157,30 @@
         <hr>
         <div class="section">
           <h2>Interests</h2>
-          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;">       
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;">
             <div style="text-align: center;">
               <img style="width: 60px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/bike.png')}}" alt="bike-icon">
               <p>Cycling</p>
-            </div>   
+            </div>
             <div style="text-align: center;">
               <img style="width: 60px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/badminton.png')}}" alt="badminton-icon">
               <p>Badminton</p>
-            </div>  
+            </div>
               <div style="text-align: center;">
                 <img style="width: 60px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/stock.png')}}" alt="stock-icon">
-                <p>Chinese Stock Market</p>
-              </div>   
+                <p>Stock Market</p>
+              </div>
               <div style="text-align: center;">
                 <img style="width: 60px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/game.png')}}" alt="game-icon">
               <p>Computer Games</p>
-            </div>   
+            </div>
           </div>
         </div>
     </div>
 
     </div>
 
-  </div> 
+  </div>
 </body>
 </html>
 <hr>
