@@ -41,24 +41,33 @@ class Person:
         self.introduction=introduction
 
 person=Person('Yang Zeshi',30)
-person.contact('yangzeshi@u.nus.edu',' +(65) 86076345', 'Singapore')
+person.contact('yangzeshi997@gmail.com',' +(65) 86076345', 'Singapore')
 person.introduction="""
-    Hi! My name is Yang Zeshi. Welcome to my website!
+    <!-- Intro Section (Professional Tone) -->
+    <p>
+    <strong>Welcome&nbsp;— I’m Dr.&nbsp;YANG&nbsp;Zeshi.</strong>
+    </p>
+
+    <p>
+    I am an engineer with complementary foundations in mineral extraction and ferrous metallurgy (B.Eng.&nbsp;Mineral Engineering, M.Eng.&nbsp;Ferrous Metallurgy, Ph.D.&nbsp;Mechanical Engineering).  
+    This multidisciplinary path has given me a panoramic view of the industrial value chain—from ore beneficiation and metallurgical conversion to advanced manufacturing processes.
+    </p>
+
+    <p>
+    Over the past years, I have also built quantitative, data-driven tools for public equity investing.  
+    During a recent engagement at a Singapore family office, I designed automated investment research pipelines with modular functions such as <a href="/investment_research/1">stock screening</a>, <a href="/investment_research/2">company analysis</a>, DCF modeling, <a href="/investment_research/3">news filtering intelligence</a>, and <a href="/investment_research/4">macro-indicator tracking</a>, turning complex datasets into decisive portfolio insights.
+    </p>
+
+    <p>
+    <strong>What I’m looking for now</strong>  
     <br>
-    <br>
-    I am a highly motivated student with a strong educational background in the industrial sector. I hold a Bachelor's degree in Mineral Engineering and a Master's degree in Ferrous Metallurgy Engineering. Now, I am a Ph.D. candidate in Mechanical Engineering.
-    <br>
-    <br>
-    During my studies, I have developed a deep understanding of various facets of the industrial chain, including <span style="color:#144cf7"><strong>mineral extraction processes</strong></span>, <span style="color:#144cf7"><strong>metallurgical transformations</strong></span>, and <span style="color:#144cf7"><strong>mechanical engineering principles</strong></span>. My educational background has equipped me with a comprehensive knowledge base and a multidisciplinary perspective that allows me to approach industrial challenges from different angles.
-    <br>
-    <br>
-    Over the past year, I have also cultivated a strong passion for <span style="color:#144cf7"><strong>investment research</strong></span>—especially in areas that blend data analysis, automation, and equity fundamentals. Through a recent internship at a family office, I developed tools for <a href="/investment_research/1">stock screening</a>, <a href="/investment_research/2">news aggregation</a>, and <a href="/investment_research/3">macroeconomic analysis</a>, applying programming skills to support real-world investment workflows.
-    <br>
-    <br>
-    These experiences have deepened my interest in the financial markets and sharpened my ability to extract insights from complex datasets. I now seek opportunities to contribute to <strong>equity research</strong> and <strong>buy-side analysis</strong> by leveraging both my technical background and my growing financial expertise.
-    <br>
-    <br>
-    I am eager to bridge the gap between engineering and investing, and to contribute meaningfully to research-driven investment strategies!
+    I’m keen to collaborate with research-oriented teams that operate at the intersection of engineering, data science, and capital markets.  
+    If your organisation values rigorous analysis, creative problem-solving, and hands-on execution, let’s explore how we can work together.
+    </p>
+
+    <p>
+    <em>Feel free to connect via&nbsp;<a href="mailto:yangzeshi997@gmail.com">email</a>&nbsp;or&nbsp;<a href="https://www.linkedin.com/in/zeshi-yang">LinkedIn</a>. I look forward to building something impactful with you.</em>
+    </p>
 """
 # Create a blueprint for the research sub-website
 research_bp=Blueprint('research',__name__,url_prefix='/academic_research')
@@ -188,7 +197,7 @@ app.register_blueprint(programming_bp)
 
 
 if __name__=='__main__':
-    db.create_all()
+    # db.create_all()
     if 'liveconsole' not in gethostname():
-        app.run()
-        # app.run(debug=True, port=3000)
+        # app.run()
+        app.run(debug=True, port=3000)
