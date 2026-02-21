@@ -1,175 +1,221 @@
-<!DOCTYPE html>
 {% extends 'base.html' %}
+
+{% block title %}Yang-Zeshi.com{% endblock %}
+
 {% block content %}
-<html>
-  
-<head>
-    <title>{% block title %}My Resume{% endblock %}</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css') }}">
-</head>
+<div class="home-page">
+  <div class="home-scroll">
 
-<body>  
-
-  <div class="column-container">
-
-    <div class="column1">
-      <div class="overall">
-        <img style="width: auto; border-radius: 10px;"
-        class="fit-picture"           
-        src="{{ url_for('static', filename='images/self.png')}}" 
-        alt="self">  
-        <h2 class="name" style="color: #144cf7; text-align: center; margin-bottom: 0px;">{{person.name}}</h2>
-        <!-- <p><strong>Age:</strong> {{person.age}}</p> -->
-        <p style="text-align: center;margin-top: 0px; font-size: small;">Ph.D. Candidate</p>
-        <div style="display: flex; align-items: center; justify-content: start;">
-          <!-- <img style="width: 30px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/mail-blue.png')}}" alt="self"> -->
-          <p style="margin-left: 5px;">{{person.email}}</p>
+    <section class="section chapter hero-section">
+      <div class="chapter-copy">
+        <p class="hero-kicker">Deeptech | VC | Investment Research |</p>
+        <h1 class="hero-title">Engineering Insight for Deeptech Capital</h1>
+        <p class="hero-lead">
+          I work at the intersection of engineering, data, and capital markets to support high-quality deeptech evaluation.
+        </p>
+        <div class="keyword-grid">
+          <div class="keywordbox"><p class="keyword"><span style="color: rgb(254,217,2);">#</span>Deeptech Investing</p></div>
+          <div class="keywordbox"><p class="keyword"><span style="color: rgb(254,217,2);">#</span>Technical Diligence</p></div>
+          <div class="keywordbox"><p class="keyword"><span style="color: rgb(254,217,2);">#</span>Investment Thesis</p></div>
         </div>
-        <div style="display: flex; align-items: center; justify-content: start;">
-          <img style="width: 30px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/tel-blue.png')}}" alt="tel-icon">
-          <p style="margin-left: 5px;">{{person.phone}}</p>
+        <div class="hero-actions">
+          <a href="/investment_research" class="hero-button">Explore Investment Projects</a>
+          <a href="/contact" class="hero-button hero-button-secondary">Start a Conversation</a>
         </div>
-        <div style="display: flex; align-items: center; justify-content: start;">
-          <img style="width: 30px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/add-blue.png')}}" alt="address-icon">
-          <p style="margin-left: 5px;">{{person.location}}</p>
-        </div>      
-        <div style="display: flex; align-items: center; justify-content: start;">
-          <img style="width: 30px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/link-blue.png')}}" alt="link-icon">
-          <p style="margin-left: 5px;">
-          <a href="https://www.linkedin.com/in/zeshi-yang" style="text-decoration: none;">Linkedin</a></p>          
-        </div>      
       </div>
-    </div>
 
-    
-    <div class="column2">
-      <div class="wrapper">
-        <div class="section">
-          <h2 style="margin-top: 0;">Who I am</h2> 
-          <div class="keyword-grid">
-            <div class="keywordbox"><p class="keyword"><span style="color: rgb(254,217,2);">#</span>Problem-solving</p></div> 
-            <div class="keywordbox"><p class="keyword"><span style="color: rgb(254,217,2);">#</span>Multidisciplinary</p></div>
-            <div class="keywordbox"><p class="keyword"><span style="color: rgb(254,217,2);">#</span>Innovative</p></div>
+      <div class="chapter-media home-visual-card" id="hero-media-card">
+        {% if home_visuals.hero %}
+        <img class="home-visual-image" src="{{ home_visuals.hero }}" alt="Deeptech investing visual">
+        {% else %}
+        <div class="home-visual-placeholder">
+          <strong>Hero Visual Slot</strong>
+          <p>Add image: <code>/static/images/home/hero_deeptech.png</code></p>
+        </div>
+        {% endif %}
+      </div>
+    </section>
+
+    <section class="section chapter intro-section">
+      <div class="chapter-copy">
+        <h2 style="margin-top: 0;">Welcome - I&apos;m YANG Zeshi, Ph.D.</h2>
+        <p>
+          Analyst at <a href="https://reefknotinvestments.com/" target="_blank" rel="noopener noreferrer">Reefknot Investment</a> with a background spanning advanced manufacturing and quantitative research workflows.
+        </p>
+        <details class="intro-details">
+          <summary>Read full professional introduction</summary>
+          <div class="intro-rich">
+            {{
+              person.introduction
+              | replace("Welcome &mdash; I&rsquo;m YANG Zeshi, Ph.D.", "Professional Background")
+              | replace("Welcome — I’m YANG Zeshi, Ph.D.", "Professional Background")
+              | replace("Welcome – I’m YANG Zeshi, Ph.D.", "Professional Background")
+              | replace("Welcome - I&apos;m YANG Zeshi, Ph.D.", "Professional Background")
+              | replace("Welcome - I'm YANG Zeshi, Ph.D.", "Professional Background")
+              | replace("Welcome — I'm YANG Zeshi, Ph.D.", "Professional Background")
+              | replace("Welcome – I'm YANG Zeshi, Ph.D.", "Professional Background")
+              | safe
+            }}
           </div>
-          <p style="text-align: justify;">{{ person.introduction | safe}}</p>
-          <p class="spacer"></p>
-        <div class="section">
-          <h2 style="margin-top: 0;">My mottos</h2>  
-          <div style="display: grid; grid-template-columns: 1fr 1fr; column-gap: 30px; justify-content: space-between;column-gap: 100px;">    
-          <div style="border: solid;border-color: rgb(254,217,2);border-radius: 15px;">     
-            <div style="margin: 20px;">
-            <p style="color: rgb(254,217,2);font-weight: bold;">2016-2023</p>   
-            <p>In the face of growth and humbling experiences, strive to grasp the essence of the world</p> 
-            <p>在不断的膨胀与打脸中，苟求一丝对世界的认识</p>   
-            </div>
-          </div> 
-          
-            <div style="border: solid;border-color: rgb(254,217,2);border-radius: 15px;">   
-              <div style="margin: 20px;">  
-                <p style="color: rgb(254,217,2);font-weight: bold;">2023-</p>
-            <p>Embrace an open mindset, wield caution in matters of the world</p>
-            <p>坦途于心境，谨慎于世事</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="section chapter">
+      <div class="chapter-copy">
+        <h2 style="margin-top: 0;">Mottos</h2>
+        <div class="motto-grid">
+          <div class="motto-card">
+            <p class="motto-period">2016-2023</p>
+            <p class="motto-en">In the face of growth and humbling experiences, strive to grasp the essence of the world</p>
+            <p class="motto-cn">在不断的膨胀与打脸中，苟求一丝对世界的认识</p>
+          </div>
+          <div class="motto-card">
+            <p class="motto-period">2023-</p>
+            <p class="motto-en">Embrace an open mindset, wield caution in matters of the world</p>
+            <p class="motto-cn">坦途于心境，谨慎于世事</p>
           </div>
         </div>
-        </div>  
-        </div>
-        </div>
-        <hr>
-        <div class="section">
-          <h2>Education</h2>
-          <div class="grid-container">
-            <div style="text-align: center;">   
-            <img
-            class="fit-picture"           
-            src="{{ url_for('static', filename='images/NUS.png')}}" 
-            alt="Logo-NUS">  
-            <p style="margin-bottom: auto;font-weight: bold;">National University of Singapore</p>
-            <p>Ph.D. of Mechanical Engineering</p>
-            <p>2020 - present</p>  
-          </div>   
-          <div style="text-align: center;">      
-            <img
-            class="fit-picture"           
-            src="{{ url_for('static', filename='images/CSU.png')}}" 
-            alt="Logo-CSU">
-            <p style="font-weight: bold;">Central South University</p>
+      </div>
+    </section>
+
+    <section class="section chapter">
+      <div class="chapter-copy">
+        <h2 style="margin-top: 0;">Education</h2>
+        <div class="education-grid">
+          <div class="edu-card">
+            <img class="fit-picture edu-logo" src="{{ url_for('static', filename='images/NUS.png')}}" alt="Logo-NUS">
+            <p class="edu-school">National University of Singapore</p>
+            <p>Ph.D. in Mechanical Engineering</p>
+            <p>2020 - 2025</p>
+          </div>
+          <div class="edu-card">
+            <img class="fit-picture edu-logo" src="{{ url_for('static', filename='images/CSU.png')}}" alt="Logo-CSU">
+            <p class="edu-school">Central South University</p>
             <p>Master of Metallurgy Engineering</p>
             <p>2017 - 2020</p>
-          </div> 
-            <div style="text-align: center;">   
-            <img
-            class="fit-picture"           
-            src="{{ url_for('static', filename='images/CSU.png')}}" 
-            alt="Logo-NUS">
-            <p style="font-weight: bold;">Central South University</p>
-            <p>Bachelor of Mineral Engineering</p>            
+          </div>
+          <div class="edu-card">
+            <img class="fit-picture edu-logo" src="{{ url_for('static', filename='images/CSU.png')}}" alt="Logo-CSU-Bachelor">
+            <p class="edu-school">Central South University</p>
+            <p>Bachelor of Mineral Engineering</p>
             <p>2013 - 2017</p>
-            </div>
-          </div>          
-        </div>
-        <hr>
-        <div class="section">
-          <h2>Skill set</h2>
-            <div style="display: grid; grid-template-columns: 1fr 1fr;margin-left:50px">
-            <div style="display: flex; align-items: baseline;">
-              <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
-              <p style="margin-left: 10px;"><strong>Computational Fluid Dynamics</strong></p>
-            </div>
-            <div style="display: flex; align-items: baseline;">
-              <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
-              <p style="margin-left: 10px;"><strong>Discrete Element Method</strong></p>
-            </div>
-            <div style="display: flex; align-items: baseline;">
-              <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
-              <p style="margin-left: 10px;"><strong>Python</strong></p>
-            </div>
-            <p class="spacer"></p>
-            <div style="display: flex; align-items: baseline;">
-              <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
-              <p style="margin-left: 10px;"><strong>Fast Learning</strong></p>
-            </div>
-            <div style="display: flex; align-items: baseline;">
-              <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
-              <p style="margin-left: 10px;"><strong>Problem-Solving</strong></p>
-            </div>
-            <div style="display: flex; align-items: baseline;">
-              <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
-              <p style="margin-left: 10px;"><strong>Adaptability</strong></p>
-            </div>
-            <div style="display: flex; align-items: baseline;">
-              <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
-              <p style="margin-left: 10px;"><strong>Teamwork</strong></p>
-            </div>
           </div>
         </div>
-        <hr>
-        <div class="section">
-          <h2>Interests</h2>
-          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;">       
-            <div style="text-align: center;">
-              <img style="width: 60px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/bike.png')}}" alt="bike-icon">
-              <p>Cycling</p>
-            </div>   
-            <div style="text-align: center;">
-              <img style="width: 60px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/badminton.png')}}" alt="badminton-icon">
-              <p>Badminton</p>
-            </div>  
-              <div style="text-align: center;">
-                <img style="width: 60px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/stock.png')}}" alt="stock-icon">
-                <p>Chinese Stock Market</p>
-              </div>   
-              <div style="text-align: center;">
-                <img style="width: 60px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/game.png')}}" alt="game-icon">
-              <p>Computer Games</p>
-            </div>   
-          </div>
+      </div>
+    </section>
+
+    <section class="section chapter">
+      <h2 style="margin-top: 0;">Skill Set</h2>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
+          <p><strong>Investment Research</strong></p>
         </div>
-    </div>
+        <div class="skill-item">
+          <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
+          <p><strong>Venture Capital Analysis</strong></p>
+        </div>
+        <div class="skill-item">
+          <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
+          <p><strong>Technical Due Diligence</strong></p>
+        </div>
+        <div class="skill-item">
+          <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
+          <p><strong>Deal Sourcing Support</strong></p>
+        </div>
+        <div class="skill-item">
+          <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
+          <p><strong>Deeptech Evaluation</strong></p>
+        </div>
+        <div class="skill-item">
+          <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
+          <p><strong>Advanced Manufacturing</strong></p>
+        </div>
+        <div class="skill-item">
+          <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
+          <p><strong>Financial and Scenario Modeling</strong></p>
+        </div>
+        <div class="skill-item">
+          <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
+          <p><strong>Python and Workflow Automation</strong></p>
+        </div>
+        <div class="skill-item">
+          <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
+          <p><strong>Investment Memo Writing</strong></p>
+        </div>
+        <div class="skill-item">
+          <img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked">
+          <p><strong>Cross-functional Communication</strong></p>
+        </div>
+      </div>
+    </section>
 
-    </div>
+    <section class="section chapter">
+      <h2 style="margin-top: 0;">Interests</h2>
+      <div class="interest-grid">
+        <div class="interest-item">
+          <img class="fit-picture interest-icon" src="{{ url_for('static', filename='images/asset/bike.png')}}" alt="bike-icon">
+          <p>Cycling</p>
+        </div>
+        <div class="interest-item">
+          <img class="fit-picture interest-icon" src="{{ url_for('static', filename='images/asset/badminton.png')}}" alt="badminton-icon">
+          <p>Badminton</p>
+        </div>
+        <div class="interest-item">
+          <img class="fit-picture interest-icon" src="{{ url_for('static', filename='images/asset/stock.png')}}" alt="stock-icon">
+          <p>Stock Market</p>
+        </div>
+        <div class="interest-item">
+          <img class="fit-picture interest-icon" src="{{ url_for('static', filename='images/asset/game.png')}}" alt="game-icon">
+          <p>Computer Games</p>
+        </div>
+      </div>
+    </section>
 
-  </div> 
-</body>
-</html>
-<hr>
+    <section class="section chapter profile-chapter">
+      <h2 style="margin-top: 0;">Profile and Contact</h2>
+      <p class="contact-lead">For collaboration or project discussion, feel free to reach out directly.</p>
+      <div class="profile-chip-grid">
+        <div class="profile-chip"><strong>Name</strong><span>{{ person.name }}</span></div>
+        <div class="profile-chip"><strong>Role</strong><span>{{ person.headline }}</span></div>
+        <div class="profile-chip"><strong>Email</strong><span>{{ person.email }}</span></div>
+        <div class="profile-chip"><strong>Phone</strong><span>{{ person.phone }}</span></div>
+        <div class="profile-chip"><strong>Location</strong><span>{{ person.location }}</span></div>
+        <div class="profile-chip"><strong>LinkedIn</strong><span><a href="https://www.linkedin.com/in/zeshi-yang">View profile</a></span></div>
+      </div>
+    </section>
+
+  </div>
+</div>
+<script>
+  (function () {
+    function balanceHeroMediaHeight() {
+      const hero = document.querySelector('.hero-section');
+      const copy = hero ? hero.querySelector('.chapter-copy') : null;
+      const media = document.querySelector('#hero-media-card');
+      if (!hero || !copy || !media) {
+        return;
+      }
+
+      if (window.matchMedia('(max-width: 1060px)').matches) {
+        media.style.height = 'auto';
+        return;
+      }
+
+      media.style.height = 'auto';
+      const copyHeight = Math.round(copy.getBoundingClientRect().height);
+      media.style.height = `${copyHeight}px`;
+    }
+
+    window.addEventListener('load', function () {
+      balanceHeroMediaHeight();
+      setTimeout(balanceHeroMediaHeight, 120);
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(balanceHeroMediaHeight);
+      }
+    });
+    window.addEventListener('resize', balanceHeroMediaHeight);
+  })();
+</script>
 {% endblock %}

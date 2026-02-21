@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+<html>
+<head>
+    <title>{% block title %}Yang-Zeshi Research{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css') }}">
+</head>
+<body>
+
+  <div class="grid-container">
+
+    <div class="grid1">
+      {% include 'research projects/project_tree.html' %}
+    </div>
+
+    <div class="grid2">
+      <div class="wrapper">
+        <div class="section">
+          <p style="color: #144cf7;font-weight: bold;font-size: 25px;text-align: center; margin-top: 20px;">Research Projects in Additive Manufacturing</p>
+          <p style="white-space: pre-line; line-height: 1.6; text-align: justify; margin-top: 0px;">
+            My Ph.D. work centred on advancing process control and material performance across several additive-manufacturing platforms. Contributions include<br>
+            • Binder–powder interaction studies in <a href="/academic_research/1">binder jetting</a><br>
+            • Uniform <a href="/academic_research/2">powder spreading</a> techniques<br>
+            • Laser-parameter optimisation and <a href="/academic_research/4">spatter mitigation</a> for <a href="/academic_research/3">laser powder-bed fusion</a><br>
+            • Process tuning in <a href="/academic_research/5">filament-deposition modelling</a><br>
+            • Quality upgrades for additively produced <a href="/academic_research/6">injection-mould tooling</a><br><br>
+          
+            To support real-time quality assurance, I have also implemented <a href="/academic_research/7">acoustic-emission sensing</a> for in-situ monitoring, capturing process dynamics at production speed.<br><br>
+          
+            As a <a href="/academic_research/8">final-year project tutor</a> I supervise undergraduate capstones, strengthening students’ experimental design, data analysis, and technical-communication skills.<br><br>
+          
+            These combined experiences give me a comprehensive perspective on metal additive manufacturing—from fundamental process physics to shop-floor deployment. I welcome collaboration with researchers and industrial partners aiming to scale these technologies.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+        <hr>
+  </body>
+</html>
+{% endblock %}

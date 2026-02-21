@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+<html>
+<head>
+    <title>{% block title %}Admin Login{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css') }}">
+</head>
+<body>
+  <div class="wrapper" style="max-width: 760px; margin: 30px auto;">
+    <div class="section">
+      <h2 style="margin-top: 0;">Admin Login</h2>
+      {% if error %}
+      <p style="color: #b42318;">{{ error }}</p>
+      {% endif %}
+
+      {% if not password_configured %}
+      <p>
+        Admin password is not configured yet. Set environment variable
+        <code>{{ password_env }}</code> before login.
+      </p>
+      {% endif %}
+
+      <form method="POST">
+        <label for="password">Password</label><br>
+        <input id="password" name="password" type="password" required style="width: 100%; margin-top: 10px; max-width: 360px;"><br><br>
+        <input type="submit" value="Login" class="submit-botton">
+      </form>
+    </div>
+  </div>
+</body>
+</html>
+{% endblock %}
