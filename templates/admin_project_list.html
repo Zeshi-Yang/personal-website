@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+<html>
+<head>
+    <title>{% block title %}Admin Projects{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css') }}">
+</head>
+<body>
+  <div class="wrapper" style="max-width: 980px; margin: 30px auto;">
+    <div class="section">
+      <h2 style="margin-top: 0;">Manage {{ section_label }} Projects</h2>
+      <p>
+        <a href="{{ url_for('admin_profile') }}">Back to Profile</a>
+        |
+        <a href="{{ url_for('admin_projects', section='investment') }}">Investment</a>
+        |
+        <a href="{{ url_for('admin_projects', section='academic') }}">Academic</a>
+      </p>
+
+      <h3 style="margin-bottom: 8px;">Add New Entry</h3>
+      <form method="POST" action="{{ url_for('admin_new_project', section=section) }}" style="display: grid; grid-template-columns: 1fr 1fr auto; gap: 8px; align-items: end; margin-bottom: 22px;">
+        <div>
+          <label for="title">Sidebar Title</label><br>
+          <input id="title" name="title" style="width: 100%;" required>
+        </div>
+        <div>
+          <label for="full_title">Page Title</label><br>
+          <input id="full_title" name="full_title" style="width: 100%;">
+        </div>
+        <div>
+          <input type="submit" value="Create" class="submit-botton">
+        </div>
+      </form>
+
+      <div style="display: grid; row-gap: 10px;">
+        {% for project in projects %}
+        <div style="padding: 12px; border: 1px solid #e4e7ec; border-radius: 8px; display: grid; grid-template-columns: 80px 1fr auto; gap: 12px; align-items: center;">
+          <div style="width: 80px; height: 58px; border: 1px solid #d0d5dd; border-radius: 6px; overflow: hidden; background: #f9fafb; display: flex; align-items: center; justify-content: center;">
+            {% if project['first_image'] %}
+            <img src="{{ url_for('static', filename=project['first_image']) }}" alt="thumbnail" style="max-width: 100%; max-height: 100%;">
+            {% else %}
+            <span style="font-size: 12px; color: #667085;">No image</span>
+            {% endif %}
+          </div>
+
+          <div>
+            <strong>#{{ project['id'] }} {{ project['title'] }}</strong>
+            <span style="color: #667085;">(Order {{ project['display_order'] }})</span><br>
+            <span style="color: #475467;">{{ project['full_title'] }}</span><br>
+            <span style="color: #667085; font-size: 13px;">{{ project['image_count'] }} image(s)</span>
+          </div>
+
+          <div style="display: flex; gap: 6px; flex-wrap: wrap; justify-content: end;">
+            <form method="POST" action="{{ url_for('admin_move_project', section=section, project_id=project['id'], direction='up') }}">
+              <button type="submit">Up</button>
+            </form>
+            <form method="POST" action="{{ url_for('admin_move_project', section=section, project_id=project['id'], direction='down') }}">
+              <button type="submit">Down</button>
+            </form>
+            <a href="{{ url_for('admin_edit_project', section=section, project_id=project['id']) }}">Edit</a>
+            <form method="POST" action="{{ url_for('admin_delete_project', section=section, project_id=project['id']) }}" onsubmit="return confirm('Delete this project and all linked images?');">
+              <button type="submit" style="color: #b42318;">Delete</button>
+            </form>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+{% endblock %}

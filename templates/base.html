@@ -2,18 +2,21 @@
 <html>
 <head>
   <title>{% block title %}{% endblock %}</title>
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='images/logo.png') }}">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/base.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css') }}">
 </head>
 <body>
   <div class="banner">
   <div class="logo">
     <a href="/" data-wpel-link="internal">
-    <img style="max-width: 60px; max-height: 100%; "
+    <img class="site-logo"
         src="{{ url_for('static', filename='images/logo.png')}}"
         alt="Logo-website">
     </a>
   </div>
-  <div class="nav" style="align-self: center;">
+  <div class="nav">
     <a href="/" class="widget {% if request.path == '/' %}active{% endif %}">Home</a>
     <a href="/investment_research" class="widget {% if 'investment_research' in request.path %}active{% endif %}">Investment Research</a>
     <a href="/academic_research" class="widget {% if 'academic_research' in request.path %}active{% endif %}">Academic Research</a>
@@ -25,6 +28,6 @@
   {% endblock %}
 </body>
 <footer style="text-align:center;">
-    <p>&copy; 2023 - 2025 Personal Website. All rights reserved.</p>
+    <p>&copy; {{ current_year }} YANG Zeshi. All rights reserved.</p>
 </footer>
 </html>

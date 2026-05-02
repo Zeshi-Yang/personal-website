@@ -1,54 +1,121 @@
-<!DOCTYPE html>
 {% extends 'base.html' %}
+
+{% block title %}Contact Page{% endblock %}
+
 {% block content %}
-<head>
-    <title>{% block title %}Contact Page{% endblock %}</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css') }}">
-</head>
-<body>
-  <div class="column-container" style="display: grid; grid-template-columns: 165px 4fr;grid-gap: 30px;"> 
+<div class="home-page contact-page">
+  <div class="home-scroll contact-scroll">
 
-    <div class="column1">
-      <div class="overall">
-        <img style="width: auto; border-radius: 10px;"
-        class="fit-picture"           
-        src="{{ url_for('static', filename='images/self.png')}}" 
-        alt="self">  
-        <h2 class="name" style="color: #144cf7; text-align: center; margin-bottom: 0px;">{{person.name}}</h2>
-        <!-- <p><strong>Age:</strong> {{person.age}}</p> -->
-        <p style="text-align: center;margin-top: 0px;font-size: small;">Ph.D. Candidate</p>
-        <div style="display: flex; align-items: center; justify-content: start;">
-          <!-- <img style="width: 30px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/mail-blue.png')}}" alt="self"> -->
-          <p style="margin-left: 5px;">{{person.email}}</p>
-        </div>
-        <div style="display: flex; align-items: center; justify-content: start;">
-          <img style="width: 30px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/tel-blue.png')}}" alt="self">
-          <p style="margin-left: 5px;">{{person.phone}}</p>
-        </div>
-        <div style="display: flex; align-items: center; justify-content: start;">
-          <img style="width: 30px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/add-blue.png')}}" alt="self">
-          <p style="margin-left: 5px;">{{person.location}}</p>
-        </div>      
-        <div style="display: flex; align-items: center; justify-content: start;">
-          <img style="width: 30px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/link-blue.png')}}" alt="self">
-          <p style="margin-left: 5px;">
-          <a href="https://www.linkedin.com/in/zeshi-yang" style="text-decoration: none;">Linkedin</a></p>          
-        </div>      
+    <section class="section chapter contact-main">
+      <div class="chapter-copy">
+        <h2 style="margin-top: 0;">Let&apos;s Connect</h2>
+        <p class="contact-lead">
+          Whether you are evaluating deeptech opportunities or building a technical company, I welcome thoughtful conversations.
+        </p>
+
+        <form action="/submit" method="POST" class="form-grid">
+          <label>Who are you reaching out as?</label>
+          <div class="audience-grid">
+            <label class="audience-option">
+              <input type="radio" name="audience" value="Funds and Investors" checked>
+              <span class="audience-card">
+                <strong>Funds and Investors</strong>
+                Discuss deal flow, technical diligence, investment thesis development, and portfolio support.
+              </span>
+            </label>
+
+            <label class="audience-option">
+              <input type="radio" name="audience" value="Founders and Operators">
+              <span class="audience-card">
+                <strong>Founders and Operators</strong>
+                Discuss growth priorities, fundraising readiness, strategic positioning, and product or market narrative.
+              </span>
+            </label>
+          </div>
+
+          <div>
+            <label for="email">Your email</label><br>
+            <input type="email" id="email" name="email" required style="width: 100%; margin-top: 8px;">
+          </div>
+
+          <div>
+            <label for="question">Your message</label><br>
+            <textarea id="question" name="question" rows="10" required style="width: 100%; margin-top: 8px;" placeholder="Share your context, objective, and what outcome you hope to achieve."></textarea>
+          </div>
+
+          <div style="display: flex; justify-content: flex-end;">
+            <input type="submit" value="Send Message" class="submit-botton">
+          </div>
+        </form>
       </div>
-    </div>
-  <div class="column2">
-  <h1 style="color: #144cf7; font-size: x-large;margin-top: 0px;">Let's keep in touch!</h1>
-  <form action="/submit" method="POST">
-    <label for="email" >Your email here</label><br>
-    <input type="email" id="email" name="email" required style="margin-top: 10px;"><br><br>
 
-    <label for="question">Leave a message</label><br>
-    <textarea id="question" name="question" rows="12" required style="width: 100%;font-family: Arial, sans-serif; margin-top: 10px;"></textarea><br><br>
+      <aside class="contact-panel">
+        <h3>Direct Contact</h3>
+        <div class="contact-meta-grid">
+          <div class="contact-meta-item">
+            <strong>Name</strong>
+            <span>{{ person.name }}</span>
+          </div>
+          <div class="contact-meta-item">
+            <strong>Role</strong>
+            <span>{{ person.headline }}</span>
+          </div>
+          <div class="contact-meta-item">
+            <strong>Email</strong>
+            <span>{{ person.email }}</span>
+          </div>
+          <div class="contact-meta-item">
+            <strong>Phone</strong>
+            <span>{{ person.phone }}</span>
+          </div>
+          <div class="contact-meta-item">
+            <strong>Location</strong>
+            <span>{{ person.location }}</span>
+          </div>
+          <div class="contact-meta-item">
+            <strong>LinkedIn</strong>
+            <span><a href="https://www.linkedin.com/in/zeshi-yang">Connect</a></span>
+          </div>
+        </div>
+      </aside>
+    </section>
 
-    <input type="submit" value="Submit" class="submit-botton">
-  </form>
+  </div>
 </div>
-</div>
-</body>
-<hr>
+<script>
+  (function () {
+    function balanceContactPanel() {
+      const main = document.querySelector('.contact-main');
+      const copy = main ? main.querySelector('.chapter-copy') : null;
+      const panel = main ? main.querySelector('.contact-panel') : null;
+      const textarea = document.querySelector('#question');
+      const metaGrid = panel ? panel.querySelector('.contact-meta-grid') : null;
+      if (!copy || !panel || !textarea || !metaGrid) {
+        return;
+      }
+
+      if (window.matchMedia('(max-width: 1060px)').matches) {
+        panel.style.height = 'auto';
+        metaGrid.style.gridTemplateRows = 'none';
+        return;
+      }
+
+      const copyTop = copy.getBoundingClientRect().top + window.scrollY;
+      const messageBottom = textarea.getBoundingClientRect().bottom + window.scrollY;
+      const targetHeight = Math.max(360, Math.round(messageBottom - copyTop));
+      panel.style.height = `${targetHeight}px`;
+
+      const rows = metaGrid.children.length;
+      if (rows > 0) {
+        metaGrid.style.gridTemplateRows = `repeat(${rows}, minmax(0, 1fr))`;
+      }
+    }
+
+    window.addEventListener('load', function () {
+      balanceContactPanel();
+      setTimeout(balanceContactPanel, 120);
+    });
+    window.addEventListener('resize', balanceContactPanel);
+  })();
+</script>
 {% endblock %}
