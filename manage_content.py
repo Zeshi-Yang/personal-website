@@ -6,7 +6,7 @@ DATABASE = 'test.db'
 
 DEFAULT_PROFILE = {
     'name': 'YANG Zeshi, Ph.D.',
-    'headline': 'VC Analyst | Investment Research',
+    'headline': 'Deeptech VC Analyst | Technical Diligence',
     'email': 'yangzeshi997@gmail.com',
     'phone': ' +(65) 89642663',
     'location': 'Singapore',
@@ -16,17 +16,17 @@ DEFAULT_PROFILE = {
     </p>
 
     <p>
-    I am an Analyst at Reeknot Investment, focused on deeptech investment research and venture analysis.
-    My training across mineral engineering, ferrous metallurgy, and mechanical engineering (B.Eng., M.Eng., Ph.D.) provides a rigorous foundation for technical diligence and investment decision support.
+    I am an Analyst at Reefknot Investment, where I focus on deeptech investment research, technical diligence, and venture analysis.
+    My training across mineral engineering, ferrous metallurgy, and mechanical engineering (B.Eng., M.Eng., Ph.D.) provides a rigorous foundation for evaluating technical risk and supporting investment decisions.
     </p>
 
     <p>
-    My publicly shareable work includes technical due diligence on operating companies, sell-side deal sourcing support for portfolio companies, strategic research on Singapore&rsquo;s role in global trade, startup qualitative due diligence through events and programs, and AI-enabled automation for internal research workflows.
+    My publicly shareable work spans technical due diligence on operating companies, sell-side sourcing support for portfolio companies, strategic research on Singapore&rsquo;s role in global trade, startup diligence through events and programs, and AI-enabled automation for internal research workflows.
     </p>
 
     <p>
     <strong>Current focus</strong><br>
-    I currently focus on evaluating scalable deeptech businesses through structured technical, strategic, and market analysis, with an emphasis on long-term value creation.
+    I focus on evaluating scalable deeptech businesses through structured technical, strategic, and market analysis, with an emphasis on long-term value creation.
     </p>
 
     <p>
