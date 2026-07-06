@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="AI Career Operations Tracker sanitized dashboard preview">
+  <rect width="960" height="540" fill="#f4f7ff"/>
+  <rect x="38" y="36" width="884" height="70" rx="18" fill="#ffffff" stroke="#dbe3f4"/>
+  <text x="64" y="70" fill="#000090" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="800">TARGETED VC/PE FIT WATCH</text>
+  <text x="64" y="94" fill="#0f1830" font-family="Manrope, Arial, sans-serif" font-size="28" font-weight="800">AI Career Operations Tracker</text>
+  <rect x="38" y="130" width="205" height="74" rx="14" fill="#ffffff" stroke="#dbe3f4"/>
+  <rect x="264" y="130" width="205" height="74" rx="14" fill="#ffffff" stroke="#dbe3f4"/>
+  <rect x="490" y="130" width="205" height="74" rx="14" fill="#ffffff" stroke="#dbe3f4"/>
+  <rect x="716" y="130" width="206" height="74" rx="14" fill="#ffffff" stroke="#dbe3f4"/>
+  <text x="60" y="160" fill="#4f5f7d" font-family="Manrope, Arial, sans-serif" font-size="15" font-weight="700">OPPORTUNITIES</text>
+  <text x="60" y="188" fill="#0f1830" font-family="Manrope, Arial, sans-serif" font-size="30" font-weight="800">26</text>
+  <text x="286" y="160" fill="#4f5f7d" font-family="Manrope, Arial, sans-serif" font-size="15" font-weight="700">APPLICATIONS</text>
+  <text x="286" y="188" fill="#0f1830" font-family="Manrope, Arial, sans-serif" font-size="30" font-weight="800">6</text>
+  <text x="512" y="160" fill="#4f5f7d" font-family="Manrope, Arial, sans-serif" font-size="15" font-weight="700">REPORTS</text>
+  <text x="512" y="188" fill="#0f1830" font-family="Manrope, Arial, sans-serif" font-size="30" font-weight="800">3</text>
+  <text x="738" y="160" fill="#4f5f7d" font-family="Manrope, Arial, sans-serif" font-size="15" font-weight="700">MEMORY</text>
+  <text x="738" y="188" fill="#0f1830" font-family="Manrope, Arial, sans-serif" font-size="30" font-weight="800">skip rules</text>
+  <rect x="38" y="230" width="884" height="256" rx="18" fill="#ffffff" stroke="#dbe3f4"/>
+  <text x="64" y="270" fill="#0f1830" font-family="Manrope, Arial, sans-serif" font-size="26" font-weight="800">Role pipeline</text>
+  <rect x="64" y="296" width="250" height="142" rx="14" fill="#f8faff" stroke="#dbe3f4"/>
+  <rect x="342" y="296" width="250" height="142" rx="14" fill="#f8faff" stroke="#dbe3f4"/>
+  <rect x="620" y="296" width="250" height="142" rx="14" fill="#f8faff" stroke="#dbe3f4"/>
+  <text x="86" y="330" fill="#000090" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="800">FIT SCORING</text>
+  <text x="86" y="362" fill="#0f1830" font-family="Manrope, Arial, sans-serif" font-size="20" font-weight="800">Deeptech role A</text>
+  <text x="86" y="392" fill="#4f5f7d" font-family="Manrope, Arial, sans-serif" font-size="16">Thesis, diligence, sector fit</text>
+  <text x="364" y="330" fill="#000090" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="800">EVIDENCE ANGLE</text>
+  <text x="364" y="362" fill="#0f1830" font-family="Manrope, Arial, sans-serif" font-size="20" font-weight="800">Application narrative</text>
+  <text x="364" y="392" fill="#4f5f7d" font-family="Manrope, Arial, sans-serif" font-size="16">CV evidence and role risks</text>
+  <text x="642" y="330" fill="#000090" font-family="Manrope, Arial, sans-serif" font-size="16" font-weight="800">FOLLOW-UP MEMORY</text>
+  <text x="642" y="362" fill="#0f1830" font-family="Manrope, Arial, sans-serif" font-size="20" font-weight="800">Watch report</text>
+  <text x="642" y="392" fill="#4f5f7d" font-family="Manrope, Arial, sans-serif" font-size="16">Duplicate and skip lessons</text>
+</svg>

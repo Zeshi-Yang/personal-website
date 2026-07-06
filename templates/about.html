@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}About Zeshi{% endblock %}
+
+{% block content %}
+<div class="home-page about-page">
+  <div class="home-scroll">
+    <section class="section chapter about-hero-section">
+      <div class="chapter-copy">
+        <p class="section-eyebrow">About</p>
+        <h1 class="hero-title">YANG Zeshi, Ph.D.</h1>
+        <p class="hero-lead">{{ person.headline }}</p>
+        <div class="profile-chip-grid">
+          <div class="profile-chip"><strong>Email</strong><span>{{ person.email }}</span></div>
+          <div class="profile-chip"><strong>Phone</strong><span>{{ person.phone }}</span></div>
+          <div class="profile-chip"><strong>Location</strong><span>{{ person.location }}</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section chapter">
+      <div class="chapter-copy intro-rich">
+        {{ person.introduction | safe }}
+      </div>
+    </section>
+
+    <section class="section chapter">
+      <div class="chapter-copy">
+        <h2 style="margin-top: 0;">Education</h2>
+        <div class="education-grid compact-grid">
+          <div class="edu-card">
+            <img class="fit-picture edu-logo" src="{{ url_for('static', filename='images/NUS.png')}}" alt="Logo-NUS">
+            <p class="edu-school">National University of Singapore</p>
+            <p>Ph.D. in Mechanical Engineering</p>
+            <p>2020 - 2025</p>
+          </div>
+          <div class="edu-card">
+            <img class="fit-picture edu-logo" src="{{ url_for('static', filename='images/CSU.png')}}" alt="Logo-CSU">
+            <p class="edu-school">Central South University</p>
+            <p>Master of Metallurgy Engineering</p>
+            <p>2017 - 2020</p>
+          </div>
+          <div class="edu-card">
+            <img class="fit-picture edu-logo" src="{{ url_for('static', filename='images/CSU.png')}}" alt="Logo-CSU-Bachelor">
+            <p class="edu-school">Central South University</p>
+            <p>Bachelor of Mineral Engineering</p>
+            <p>2013 - 2017</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section chapter">
+      <div class="chapter-copy">
+        <h2 style="margin-top: 0;">Core Skills</h2>
+        <div class="skills-grid compact-grid">
+          <div class="skill-item"><img class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked"><p><strong>Investment Research</strong></p></div>
+          <div class="skill-item"><img class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked"><p><strong>Venture Capital Analysis</strong></p></div>
+          <div class="skill-item"><img class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked"><p><strong>Technical Due Diligence</strong></p></div>
+          <div class="skill-item"><img class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked"><p><strong>Deeptech Evaluation</strong></p></div>
+          <div class="skill-item"><img class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked"><p><strong>Advanced Manufacturing</strong></p></div>
+          <div class="skill-item"><img class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked"><p><strong>Python and Workflow Automation</strong></p></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}
