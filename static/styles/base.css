@@ -114,14 +114,15 @@ footer {
 
 @media (max-width: 640px) {
   .banner {
-    grid-template-columns: auto minmax(0, 1fr);
-    justify-items: stretch;
-    gap: 10px;
-    padding: 8px 10px;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 8px;
+    padding: 8px 10px 10px;
   }
 
   .logo {
     align-self: center;
+    justify-content: center;
   }
 
   .site-logo {
@@ -132,28 +133,21 @@ footer {
   .nav {
     width: 100%;
     min-width: 0;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 6px;
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .nav::-webkit-scrollbar {
-    display: none;
+    overflow: visible;
   }
 
   .widget {
     display: flex;
-    flex: 0 0 auto;
-    min-height: 38px;
+    min-height: 34px;
     align-items: center;
     justify-content: center;
-    padding: 7px 11px;
+    padding: 7px 8px;
     font-size: 12px;
-    white-space: nowrap;
+    line-height: 1.15;
+    white-space: normal;
     text-align: center;
   }
 }

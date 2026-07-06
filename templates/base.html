@@ -19,6 +19,8 @@
   </div>
   <div class="nav">
     <a href="/" class="widget {% if request.path == '/' %}active{% endif %}">Home</a>
+    <a href="/about" class="widget {% if 'about' in request.path %}active{% endif %}">About</a>
+    <a href="/ai_projects" class="widget {% if 'ai_projects' in request.path %}active{% endif %}">AI Projects</a>
     <a href="/investment_research" class="widget {% if 'investment_research' in request.path %}active{% endif %}">Investment Research</a>
     <a href="/academic_research" class="widget {% if 'academic_research' in request.path %}active{% endif %}">Academic Research</a>
     <a href="/contact" class="widget {% if 'contact' in request.path %}active{% endif %}">Contact</a>

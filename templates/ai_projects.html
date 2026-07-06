@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}{% if selected_project %}{{ selected_project.name }}{% else %}AI Projects{% endif %}{% endblock %}
+
+{% block content %}
+<div class="grid-container ai-projects-page">
+  <div class="grid1">
+    <div class="project-list ai-project-nav" style="grid-template-columns: 0.8fr; margin-top: 20px; justify-content: start;">
+      {% for project in projects %}
+      <a href="{{ url_for('show_ai_project', project_id=project.id) }}" class="widget {% if selected_project and selected_project.id == project.id %}highlight{% endif %}">{{ project.name }}</a>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="wrapper">
+      {% if selected_project %}
+      <section class="section ai-project-detail-page">
+        <span class="capability-tag">{{ selected_project.category }}</span>
+        <h2>{{ selected_project.name }}</h2>
+        <p class="ai-project-summary">{{ selected_project.summary }}</p>
+        <p style="white-space: pre-line;text-align: justify;">{{ selected_project.description }}</p>
+
+        <img class="fit-picture ai-project-detail-image" src="{{ url_for('static', filename=selected_project.image) }}" alt="{{ selected_project.name }} representative image">
+
+        <div class="capability-note ai-project-detail-note">
+          <strong>What this system demonstrates</strong>
+          <ul class="ai-project-details">
+            {% for detail in selected_project.details %}
+            <li>{{ detail }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </section>
+      {% else %}
+      <section class="section capability-page">
+        <h2 class="capability-heading">AI Projects for Investment and Technical Research</h2>
+        <p class="capability-intro">
+          These systems operationalise the investment-research workflows and technical diligence background shown in the other two sections. Investment-relevant tools are listed first.
+        </p>
+
+        <div class="capability-grid capability-grid-two">
+          {% for project in projects %}
+          <article class="capability-card">
+            <span class="capability-tag">{{ project.category }}</span>
+            <strong><a href="{{ url_for('show_ai_project', project_id=project.id) }}">{{ project.name }}</a></strong>
+            <p>{{ project.summary }}</p>
+          </article>
+          {% endfor %}
+        </div>
+
+      </section>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

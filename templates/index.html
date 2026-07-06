@@ -8,195 +8,64 @@
 
     <section class="section chapter hero-section">
       <div class="chapter-copy">
-        <p class="hero-kicker">Deeptech diligence · investment research systems · advanced manufacturing</p>
-        <h1 class="hero-title">Technical judgment for deeptech investment decisions</h1>
+        <p class="hero-kicker">Deeptech VC | Technical diligence | AI research systems</p>
+        <h1 class="hero-title">{{ person.name }}</h1>
         <p class="hero-lead">
-          I translate engineering evidence, market structure, and research automation into sharper diligence questions for investors, founders, and industrial-technology teams.
+          I work on fund-ready deeptech diligence: market structure, technical evidence, company claims, and AI-assisted research workflows.
         </p>
-        <details class="hero-proof-details" open>
-          <summary>Why this background is relevant</summary>
-          <div class="proof-grid hero-proof-grid" aria-label="Selected credibility signals">
-            <div class="proof-card"><strong>Ph.D. engineering depth</strong><span>Mechanical engineering research in additive manufacturing and process monitoring.</span></div>
-            <div class="proof-card"><strong>VC research practice</strong><span>Deeptech investment analysis at Reefknot Investment.</span></div>
-            <div class="proof-card"><strong>AI-enabled research systems</strong><span>Automation for screening, company analysis, and news intelligence workflows.</span></div>
+        <div class="work-preview-grid hero-proof-grid">
+          <div class="work-preview-card">
+            <span>Investment lens</span>
+            <strong>Commercial diligence</strong>
+            <p>Sourcing, company analysis, news monitoring, and decision support for VC-style research.</p>
           </div>
-        </details>
+          <div class="work-preview-card">
+            <span>Technical basis</span>
+            <strong>Manufacturing judgment</strong>
+            <p>Advanced-manufacturing background for assessing process risk, scale-up readiness, and evidence quality.</p>
+          </div>
+          <div class="work-preview-card">
+            <span>Systems work</span>
+            <strong>AI research workflows</strong>
+            <p>Tools that organise filings, sources, research artifacts, and recurring monitoring work.</p>
+          </div>
+        </div>
         <div class="hero-actions">
-          <a href="/investment_research" class="hero-button">View research systems</a>
-          <a href="/academic_research" class="hero-button hero-button-secondary">See technical foundations</a>
+          <a href="/about" class="hero-button">About me</a>
+          <a href="/contact" class="hero-button hero-button-secondary">Contact</a>
         </div>
-      </div>
-
-      <div class="chapter-media home-visual-card" id="hero-media-card">
-        {% if home_visuals.hero %}
-        <img class="home-visual-image" src="{{ home_visuals.hero }}" alt="Deeptech investing visual">
-        {% else %}
-        <div class="home-visual-placeholder">
-          <strong>Hero Visual Slot</strong>
-          <p>Add image: <code>/static/images/home/hero_deeptech.png</code></p>
-        </div>
-        {% endif %}
       </div>
     </section>
 
-    <section class="section chapter intro-section">
+    <section class="section chapter intro-section selected-work-section" id="selected-work">
       <div class="chapter-copy">
-        <h2 style="margin-top: 0;">Selected work and research systems</h2>
-        <p>
-          Analyst at <a href="https://reefknotinvestments.com/" target="_blank" rel="noopener noreferrer">Reefknot Investment</a> with a background spanning advanced manufacturing, technical diligence, and quantitative research workflows.
-        </p>
+        <p class="section-eyebrow">Core sections</p>
+        <h2 style="margin-top: 0;">Commercial-ready research, systems, and technical foundation</h2>
+        <p class="compact-home-lead">A quick route into the main evidence behind my work.</p>
         <div class="work-preview-grid">
-          <a class="work-preview-card" href="/investment_research/1">
+          <a class="work-preview-card" href="/investment_research">
             <span>Investment research</span>
-            <strong>Multi-Factor Stock Screener</strong>
-            <p>Sector-aware factor ranking and shortlist generation for fundamental deep dives.</p>
+            <strong>Fund-ready research systems</strong>
+            <p>Stock screening, company analysis, news monitoring, macro context, and supporting automation for diligence workflows.</p>
           </a>
-          <a class="work-preview-card" href="/investment_research/2">
-            <span>Research automation</span>
-            <strong>Agentic Company-Analysis Workflow</strong>
-            <p>LLM-assisted conversion of filings, reports, and transcripts into structured diligence outputs.</p>
+          <a class="work-preview-card" href="/ai_projects">
+            <span>AI systems</span>
+            <strong>Research workflow tools</strong>
+            <p>Local apps for artifact libraries, knowledge systems, sourcing, monitoring, and technical-diligence operations.</p>
           </a>
-          <a class="work-preview-card" href="/academic_research/7">
-            <span>Technical foundation</span>
-            <strong>Acoustic Signal Emissions</strong>
-            <p>In-situ monitoring work connecting process physics, sensing, and quality assurance.</p>
+          <a class="work-preview-card" href="/academic_research">
+            <span>Academic research</span>
+            <strong>Advanced manufacturing foundation</strong>
+            <p>Binder jetting, powder spreading, laser powder-bed fusion, sensing, modelling, and tooling work.</p>
           </a>
         </div>
-        <details class="intro-details">
-          <summary>Read full professional introduction</summary>
-          <div class="intro-rich">
-            {{
-              person.introduction
-              | replace("Welcome &mdash; I&rsquo;m YANG Zeshi, Ph.D.", "Professional Background")
-              | replace("Welcome — I’m YANG Zeshi, Ph.D.", "Professional Background")
-              | replace("Welcome – I’m YANG Zeshi, Ph.D.", "Professional Background")
-              | replace("Welcome - I&apos;m YANG Zeshi, Ph.D.", "Professional Background")
-              | replace("Welcome - I'm YANG Zeshi, Ph.D.", "Professional Background")
-              | replace("Welcome — I'm YANG Zeshi, Ph.D.", "Professional Background")
-              | replace("Welcome – I'm YANG Zeshi, Ph.D.", "Professional Background")
-              | safe
-            }}
-          </div>
-        </details>
+        <div class="home-mini-cta">
+          <span>For background and contact details, use About or Contact.</span>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+        </div>
       </div>
     </section>
-
-    <section class="section chapter compact-home-section">
-      <div class="chapter-copy">
-        <h2 style="margin-top: 0;">More about Zeshi</h2>
-        <p class="compact-home-lead">The homepage now keeps the main story short. Expand the sections below only if you want more background.</p>
-
-        <details class="home-accordion" open>
-          <summary>Profile and contact</summary>
-          <p class="contact-lead">For collaboration or project discussion, feel free to reach out directly.</p>
-          <div class="profile-chip-grid">
-            <div class="profile-chip"><strong>Name</strong><span>{{ person.name }}</span></div>
-            <div class="profile-chip"><strong>Role</strong><span>{{ person.headline }}</span></div>
-            <div class="profile-chip"><strong>Email</strong><span>{{ person.email }}</span></div>
-            <div class="profile-chip"><strong>Phone</strong><span>{{ person.phone }}</span></div>
-            <div class="profile-chip"><strong>Location</strong><span>{{ person.location }}</span></div>
-            <div class="profile-chip"><strong>LinkedIn</strong><span><a href="https://www.linkedin.com/in/zeshi-yang">View profile</a></span></div>
-          </div>
-        </details>
-
-        <details class="home-accordion">
-          <summary>Education</summary>
-          <div class="education-grid compact-grid">
-            <div class="edu-card">
-              <img class="fit-picture edu-logo" src="{{ url_for('static', filename='images/NUS.png')}}" alt="Logo-NUS">
-              <p class="edu-school">National University of Singapore</p>
-              <p>Ph.D. in Mechanical Engineering</p>
-              <p>2020 - 2025</p>
-            </div>
-            <div class="edu-card">
-              <img class="fit-picture edu-logo" src="{{ url_for('static', filename='images/CSU.png')}}" alt="Logo-CSU">
-              <p class="edu-school">Central South University</p>
-              <p>Master of Metallurgy Engineering</p>
-              <p>2017 - 2020</p>
-            </div>
-            <div class="edu-card">
-              <img class="fit-picture edu-logo" src="{{ url_for('static', filename='images/CSU.png')}}" alt="Logo-CSU-Bachelor">
-              <p class="edu-school">Central South University</p>
-              <p>Bachelor of Mineral Engineering</p>
-              <p>2013 - 2017</p>
-            </div>
-          </div>
-        </details>
-
-        <details class="home-accordion">
-          <summary>Core skills</summary>
-          <div class="skills-grid compact-grid">
-            <div class="skill-item"><img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked"><p><strong>Investment Research</strong></p></div>
-            <div class="skill-item"><img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked"><p><strong>Venture Capital Analysis</strong></p></div>
-            <div class="skill-item"><img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked"><p><strong>Technical Due Diligence</strong></p></div>
-            <div class="skill-item"><img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked"><p><strong>Deal Sourcing Support</strong></p></div>
-            <div class="skill-item"><img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked"><p><strong>Deeptech Evaluation</strong></p></div>
-            <div class="skill-item"><img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked"><p><strong>Advanced Manufacturing</strong></p></div>
-            <div class="skill-item"><img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked"><p><strong>Financial and Scenario Modeling</strong></p></div>
-            <div class="skill-item"><img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked"><p><strong>Python and Workflow Automation</strong></p></div>
-            <div class="skill-item"><img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked"><p><strong>Investment Memo Writing</strong></p></div>
-            <div class="skill-item"><img style="width: 20px; height: 15px;" class="fit-picture" src="{{ url_for('static', filename='images/asset/check.png')}}" alt="checked"><p><strong>Cross-functional Communication</strong></p></div>
-          </div>
-        </details>
-
-        <details class="home-accordion">
-          <summary>Mottos and interests</summary>
-          <div class="motto-grid compact-grid">
-            <div class="motto-card">
-              <p class="motto-period">2016-2023</p>
-              <p class="motto-en">In the face of growth and humbling experiences, strive to grasp the essence of the world</p>
-              <p class="motto-cn">在不断的膨胀与打脸中，苟求一丝对世界的认识</p>
-            </div>
-            <div class="motto-card">
-              <p class="motto-period">2023-</p>
-              <p class="motto-en">Embrace an open mindset, wield caution in matters of the world</p>
-              <p class="motto-cn">坦途于心境，谨慎于世事</p>
-            </div>
-          </div>
-          <div class="interest-grid compact-grid">
-            <div class="interest-item"><img class="fit-picture interest-icon" src="{{ url_for('static', filename='images/asset/bike.png')}}" alt="bike-icon"><p>Cycling</p></div>
-            <div class="interest-item"><img class="fit-picture interest-icon" src="{{ url_for('static', filename='images/asset/badminton.png')}}" alt="badminton-icon"><p>Badminton</p></div>
-            <div class="interest-item"><img class="fit-picture interest-icon" src="{{ url_for('static', filename='images/asset/stock.png')}}" alt="stock-icon"><p>Stock Market</p></div>
-            <div class="interest-item"><img class="fit-picture interest-icon" src="{{ url_for('static', filename='images/asset/game.png')}}" alt="game-icon"><p>Computer Games</p></div>
-          </div>
-        </details>
-      </div>
-    </section>
-
   </div>
 </div>
-<script>
-  (function () {
-    function balanceHeroMediaHeight() {
-      const hero = document.querySelector('.hero-section');
-      const copy = hero ? hero.querySelector('.chapter-copy') : null;
-      const media = document.querySelector('#hero-media-card');
-      if (!hero || !copy || !media) {
-        return;
-      }
-
-      if (window.matchMedia('(max-width: 1060px)').matches) {
-        media.style.height = 'auto';
-        return;
-      }
-
-      media.style.height = 'auto';
-      const copyHeight = Math.round(copy.getBoundingClientRect().height);
-      media.style.height = `${copyHeight}px`;
-    }
-
-    window.addEventListener('load', function () {
-      const mobileHeroProof = document.querySelector('.hero-proof-details');
-      if (mobileHeroProof && window.matchMedia('(max-width: 640px)').matches) {
-        mobileHeroProof.open = false;
-      }
-      balanceHeroMediaHeight();
-      setTimeout(balanceHeroMediaHeight, 120);
-      if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(balanceHeroMediaHeight);
-      }
-    });
-    window.addEventListener('resize', balanceHeroMediaHeight);
-  })();
-</script>
 {% endblock %}
